@@ -1,0 +1,5 @@
+@mixin breakpoint {
+	@media (min-widyh: 970px) {
+		@content;
+	}
+}
