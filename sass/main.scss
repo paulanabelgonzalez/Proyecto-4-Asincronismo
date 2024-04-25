@@ -10,3 +10,11 @@
 @import "components/title.scss";
 
 // Layout por ej: secciones
+@import "layout/header.scss";
+@import "layout/body-main.scss";
+@import "layout/seccion_intro.scss";
+@import "layout/footer.scss";
+
+.hidden {
+	display: none;
+}

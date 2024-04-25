@@ -1,0 +1,24 @@
+header {
+	background-color: $light-secundary;
+	height: 25vh;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	@include breakpoint {
+		height: 20vh;
+	}
+
+	.logo_intro {
+		display: flex;
+		justify-content: center;
+
+		.img {
+			max-width: 250px;
+
+			@include breakpoint {
+				max-width: 280px;
+			}
+		}
+	}
+}

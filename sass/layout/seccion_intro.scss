@@ -1,0 +1,29 @@
+.intro {
+	max-width: 600px;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 2px;
+
+	@include breakpoint {
+		// max-width: 680px;
+		max-width: 705px;
+	}
+
+	video {
+		max-width: 97%;
+	}
+
+	button {
+		padding: 9px;
+		font-family: $font-alt;
+		border: none;
+		color: #ac3249;
+		background-color: $light-primary;
+
+		@include breakpoint {
+			font-size: 1rem;
+		}
+	}
+}

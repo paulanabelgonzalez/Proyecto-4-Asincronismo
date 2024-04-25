@@ -1,0 +1,11 @@
+main {
+	background-color: $light-primary;
+	height: 60vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	@include breakpoint {
+		height: 70vh;
+	}
+}

@@ -1,5 +1,9 @@
 @mixin breakpoint {
-	@media (min-widyh: 970px) {
+	@media (min-width: 970px) {
 		@content;
 	}
+}
+
+@mixin border($width, $color) {
+	border: $width solid $color;
 }

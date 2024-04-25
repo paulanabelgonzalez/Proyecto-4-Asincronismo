@@ -10,34 +10,46 @@
 	<body>
 		<header>
 			<nav>
-				<div class="logo">
-					<img src="assets/logo.png" alt="logo caballeros del zoodiaco" />
-				</div>
-				<div class="buscador">
-					<input
-						type="text"
-						id="bucador_personaje"
-						placeholder="Nombre del personaje"
+				<div class="logo_intro">
+					<img
+						src="assets/logo.png"
+						class="img"
+						alt="logo caballeros del zoodiaco"
 					/>
-					<button id="modo">
-						<img src="assets/btn-dark.png" alt="imagen boton modo oscuro" />
-					</button>
+				</div>
+				<div class="contenedor_nav hidden">
+					<div class="logo">
+						<img
+							src="assets/logo.png"
+							class="img"
+							alt="logo caballeros del zoodiaco"
+						/>
+					</div>
+					<div class="hamburguesa">
+						<img src="assets/menu.png" alt="logo menu hamburguesa" />
+					</div>
+					<div class="buscador hidden">
+						<input
+							type="text"
+							id="bucador_personaje"
+							placeholder="Nombre del personaje"
+						/>
+						<button id="modo">
+							<img src="assets/btn-dark.png" alt="imagen boton modo oscuro" />
+						</button>
+					</div>
 				</div>
 			</nav>
 		</header>
 		<main>
-			<section>
-				<div class="video">
-					<video
-						controls
-						autoplay
-						muted
-						src="assets/Los Caballeros Del Zodiaco - Opening Castellano Remasterizado 4K.mp4"
-					></video>
-				</div>
-				<div class="saltar_video">
-					<button>Saltar Intro >></button>
-				</div>
+			<section class="intro">
+				<video
+					controls
+					autoplay
+					muted
+					src="assets/Los Caballeros Del Zodiaco - Opening Castellano Remasterizado 4K.mp4"
+				></video>
+				<button>Saltar Intro >></button>
 			</section>
 			<section>
 				<div class="cards"></div>
@@ -50,15 +62,12 @@
 			</section>
 		</main>
 		<footer>
-			<div>
-				<p>Hecho con amor 💖</p>
-				<p>Paula Gonzalez</p>
-			</div>
 			<a
 				href="https://github.com/paulanabelgonzalez/Proyecto-4-Asincronismo"
 				target="_blank"
-				><i class="fa-brands fa-github"></i
-			></a>
+				><img src="assets/github.svg" alt="logo de gitHub"
+			/></a>
+			<p>Hecho con 💖 Paula Gonzalez</p>
 		</footer>
 	</body>
 </html>
