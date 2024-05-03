@@ -9,7 +9,17 @@ const ocultarYMostrar = (ocultar, ver) => {
 	ver.classList.remove("hidden");
 };
 
-$(".btn_intro").addEventListener("click", () => {
+const salirDeIntro = () => {
 	ocultarYMostrar($(".logo_intro"), $(".contenedor_nav"));
 	ocultar($(".intro"));
-});
+};
+
+const introTerminada = () => {
+	$(".video").onended = () => {
+		salirDeIntro();
+	};
+};
+
+introTerminada();
+
+$(".btn_intro").addEventListener("click", salirDeIntro);
