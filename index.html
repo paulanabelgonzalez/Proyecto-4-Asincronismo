@@ -9,24 +9,32 @@
 	</head>
 	<body>
 		<header>
-			<nav>
-				<div class="logo_intro">
+			<nav class="logo_intro">
+				<div class="logo_intro__img">
 					<img
 						src="assets/logo.png"
-						class="img"
+						class="intro_img"
 						alt="logo caballeros del zoodiaco"
 					/>
 				</div>
-				<div class="contenedor_nav hidden">
-					<div class="logo">
-						<img
-							src="assets/logo.png"
-							class="img"
-							alt="logo caballeros del zoodiaco"
-						/>
-					</div>
-					<div class="hamburguesa">
-						<img src="assets/menu.png" alt="logo menu hamburguesa" />
+			</nav>
+			<nav class="contenedor_nav hidden">
+				<div class="logo_nav">
+					<div class="logos">
+						<div class="logo">
+							<img
+								src="assets/logo.png"
+								class="img_logo"
+								alt="logo caballeros del zoodiaco"
+							/>
+						</div>
+						<div class="menu_hamburguesa">
+							<img
+								class="hamburguesa"
+								src="assets/menu.png"
+								alt="logo menu hamburguesa"
+							/>
+						</div>
 					</div>
 					<div class="buscador hidden">
 						<input
@@ -49,7 +57,7 @@
 					muted
 					src="assets/Los Caballeros Del Zodiaco - Opening Castellano Remasterizado 4K.mp4"
 				></video>
-				<button>Saltar Intro >></button>
+				<button class="btn_intro">Saltar Intro >></button>
 			</section>
 			<section>
 				<div class="cards"></div>
@@ -69,5 +77,6 @@
 			/></a>
 			<p>Hecho con 💖 Paula Gonzalez</p>
 		</footer>
+		<script src="main.js"></script>
 	</body>
 </html>

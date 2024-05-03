@@ -1,23 +1,69 @@
 header {
 	background-color: $light-secundary;
-	height: 25vh;
+	// height: 25vh;
+	height: 22vh;
 	display: flex;
-	justify-content: center;
+	// justify-content: center;
 	align-items: center;
 
 	@include breakpoint {
-		height: 20vh;
+		height: 17vh;
 	}
 
 	.logo_intro {
-		display: flex;
-		justify-content: center;
+		width: 100%;
 
-		.img {
-			max-width: 250px;
+		.logo_intro__img {
+			display: flex;
+			justify-content: center;
 
+			.intro_img {
+				max-width: 250px;
+
+				@include breakpoint {
+					max-width: 280px;
+				}
+			}
+		}
+	}
+
+	.contenedor_nav {
+		width: 100%;
+
+		.logo_nav {
+			width: 100%;
+			display: flex;
+			justify-content: space-around;
+			align-items: center;
+
+			.logos {
+				@extend .logo_nav;
+
+				.img_logo {
+					// @extend .intro_img;
+					max-width: 250px;
+
+					@include breakpoint {
+						max-width: 280px;
+					}
+				}
+			}
+
+			.hamburguesa {
+				max-width: 45px;
+
+				@include breakpoint {
+					display: none;
+				}
+			}
+		}
+
+		.buscador {
 			@include breakpoint {
-				max-width: 280px;
+				width: 34%;
+				display: flex;
+				justify-content: space-around;
+				align-items: center;
 			}
 		}
 	}
