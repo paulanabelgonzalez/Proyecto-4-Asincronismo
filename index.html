@@ -50,7 +50,7 @@
 			</nav>
 		</header>
 		<main>
-			<section class="intro">
+			<section class="intro hidden">
 				<video
 					class="video"
 					controls
@@ -60,24 +60,44 @@
 				></video>
 				<button class="btn_intro">Saltar Intro >></button>
 			</section>
-			<section>
-				<div class="cards"></div>
+			<div class="spinner hidden">
+				<img class="spinner_img" src="assets/spinner.gif" alt="spinner" />
+				<p class="spinner_texto">Cargando...</p>
+			</div>
+			<section class="cards">
+				<div class="card">
+					<div class="card_img">
+						<img src="assets/img_cards/1.saori.jpg" alt="imagen de saori" />
+					</div>
+					<div class="card_info">
+						<div class="info">
+							<h2 class="nombre">${nombre}</h2>
+							<h3 class="caballero">${caballero}</h3>
+							<p class="armadura">${armadura}</p>
+							<p class="descripcion">${descripcion}</p>
+						</div>
+						<div class="card_btn">
+							<button class="btn_detalle" data-id="${id}">Ver Detalle</button>
+						</div>
+					</div>
+				</div>
 			</section>
 			<section>
-				<div class="card"></div>
+				<div class="card_detalle"></div>
 			</section>
 			<section>
-				<div class="ventana-modal"></div>
+				<div class="ventana_modal"></div>
 			</section>
 		</main>
 		<footer>
 			<a
 				href="https://github.com/paulanabelgonzalez/Proyecto-4-Asincronismo"
-				target="_blank"
+				target="blank"
 				><img src="assets/github.svg" alt="logo de gitHub"
 			/></a>
 			<p>Hecho con 💖 Paula Gonzalez</p>
 		</footer>
 		<script src="main.js"></script>
+		<script src="main_fetch.js"></script>
 	</body>
 </html>

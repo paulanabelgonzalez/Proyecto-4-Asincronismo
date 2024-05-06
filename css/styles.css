@@ -5,6 +5,12 @@
   box-sizing: border-box;
 }
 
+button {
+  font-family: "Russo One", sans-serif;
+  color: #ac3249;
+  background-color: #ede9e2;
+}
+
 header {
   background-color: #e5dbc7;
   height: 22vh;
@@ -94,17 +100,53 @@ main {
 .intro video {
   max-width: 97%;
 }
-.intro button {
+.intro .btn_intro {
   padding: 9px;
-  font-family: "Russo One", sans-serif;
   border: none;
-  color: #ac3249;
-  background-color: #ede9e2;
 }
 @media (min-width: 970px) {
-  .intro button {
+  .intro .btn_intro {
     font-size: 1rem;
   }
+}
+
+.spinner_img {
+  max-width: 300px;
+  border-radius: 100px;
+}
+
+.spinner_texto {
+  padding-top: 17px;
+  text-align: center;
+  font-family: "Russo One", sans-serif;
+  color: #ac3249;
+  font-size: 1rem;
+}
+
+.card {
+  border: 1px solid black;
+  padding: 10px;
+  border-radius: 10px;
+  display: flex;
+  gap: 15px;
+}
+.card .card_img {
+  max-width: 170px;
+}
+.card .card_img img {
+  width: 100%;
+}
+.card .card_info {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding-bottom: 3px;
+}
+.card .card_info .btn_detalle {
+  border: 2px solid #ac3249;
+  padding: 4px;
+  border-radius: 6px;
+  font-size: 0.7rem;
 }
 
 footer {

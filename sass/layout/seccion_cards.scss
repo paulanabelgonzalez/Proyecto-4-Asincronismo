@@ -1,0 +1,29 @@
+.card {
+	@include border(1px, black);
+	padding: 10px;
+	border-radius: 10px;
+	display: flex;
+	gap: 15px;
+
+	.card_img {
+		max-width: 170px;
+
+		img {
+			width: 100%;
+		}
+	}
+
+	.card_info {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		padding-bottom: 3px;
+
+		.btn_detalle {
+			@include border(2px, $button-color);
+			padding: 4px;
+			border-radius: 6px;
+			font-size: 0.7rem;
+		}
+	}
+}
