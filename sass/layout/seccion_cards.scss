@@ -1,29 +1,39 @@
-.card {
-	@include border(1px, black);
-	padding: 10px;
-	border-radius: 10px;
+.cards {
 	display: flex;
-	gap: 15px;
+	flex-direction: column;
+	gap: 10px;
 
-	.card_img {
-		max-width: 170px;
-
-		img {
-			width: 100%;
-		}
+	@include breakpoint {
+		display: grid;
+		grid-template-columns: repeat(3, 1fr);
+		gap: 15px;
 	}
 
-	.card_info {
+	.card {
+		@include border(1px, black);
+		padding: 10px;
+		border-radius: 10px;
 		display: flex;
-		flex-direction: column;
-		justify-content: space-between;
-		padding-bottom: 3px;
+		gap: 15px;
 
-		.btn_detalle {
-			@include border(2px, $button-color);
-			padding: 4px;
-			border-radius: 6px;
-			font-size: 0.7rem;
+		img {
+			width: 170px;
+			aspect-ratio: 2 / 3;
+			object-fit: cover;
+		}
+
+		.card_info {
+			display: flex;
+			flex-direction: column;
+			justify-content: space-between;
+			padding-bottom: 3px;
+
+			.btn_detalle {
+				@include border(2px, $button-color);
+				padding: 4px;
+				border-radius: 6px;
+				font-size: 0.7rem;
+			}
 		}
 	}
 }
