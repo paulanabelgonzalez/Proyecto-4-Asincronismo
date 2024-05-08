@@ -64,20 +64,71 @@ const renderCaballeros = (caballeros) => {
 		</div>
         `;
 		});
+
+		eventoABotonesDetalle(document.querySelectorAll(".btn_detalle"));
 	}, 2700);
 };
 
-const getDetalle = (url) => {
-	fetch(url)
-		.tehen((res) => res.json())
-		.then((data) => console.log(data))
+const eventoABotonesDetalle = (btns) => {
+	btns.forEach((btn) =>
+		btn.addEventListener("click", () =>
+			verCardDetalle(btn.getAttribute("data-id"))
+		)
+	);
+};
+
+const verCardDetalle = (idCaballero) => {
+	fetch(`${urlBase}/${idCaballero}`)
+		.then((res) => res.json())
+		.then((data) => renderDetalle(data))
 		.catch((err) => console.log(err));
 };
 
-const renderDetalle = (cards) => {
+const renderDetalle = (card) => {
 	ocultarYMostrar($(".spinner"), $(".cards"));
 
-	cards.forEach((card) => {
-		const {} = card;
+	setTimeout(() => {
+		ocultarYMostrar($(".detalle"), $(".spinner"));
+
+		const { box, caballero, img_armadura, nombre, detalle, id } = card;
+
+		$(".detalle").innerHTML = `
+        <div class="card_detalle">
+			<button class="detalle_regresar">X</button>
+			<div class="detalle_img">
+				<img
+					class="box"
+					src="${box}"
+					alt="caja de pandora de ${caballero}"
+				/>
+				<img
+				    class="img_armadura"
+					src="${img_armadura}"
+					alt="armadura de ${caballero}"
+				/>
+			</div>
+			<div class="detalle_contenedor">
+				<div class="detalle_info">
+					<div class="detalle_btn__regresar hidden">
+						<button class="regresar"><< Regresar</button>
+					</div>
+					<h2 class="detalle_nombre">${nombre}</h2>
+					<p class="detalle_texto">${detalle}</p>
+				</div>
+				<div class="detalle_btns">
+					<button class="detalle_btn__editar" data-id="${id}">Editar</button>
+					<button class="detalle_btn__eliminar" data-id="${id}">Eliminar</button>
+				</div>
+			</div>
+		</div>
+        `;
+		cerrar($(".detalle_regresar"));
+		cerrar($(".regresar"));
+	}, 2700);
+};
+
+const cerrar = (btn) => {
+	btn.addEventListener("click", () => {
+		ocultar($(".detalle")), getCaballeros(urlBase);
 	});
 };

@@ -1,0 +1,165 @@
+.detalle {
+	@include margenesCard;
+
+	@include breakpoint {
+		height: auto;
+	}
+	.card_detalle {
+		padding: 10px;
+		@include border(2px, $button-color);
+		border-radius: 10px;
+
+		@include breakpoint {
+			max-width: 1160px;
+			padding: 52px;
+			display: flex;
+			justify-content: space-around;
+			gap: 35px;
+		}
+
+		.detalle_regresar {
+			width: 100%;
+			text-align: end;
+			border: none;
+			font-size: 1rem;
+
+			@include breakpoint {
+				display: none;
+			}
+		}
+
+		.detalle_img {
+			position: relative;
+			width: 200px;
+			transition: all 0.3s ease;
+			margin: auto;
+
+			@include breakpoint {
+				width: 400px;
+				margin: 0;
+			}
+
+			&:hover {
+				transform: perspective(200px) rotateX(10deg) translateY(-5%)
+					translateZ(0);
+
+				@include breakpoint {
+					transform: perspective(400px) rotateX(10deg) translateY(-5%)
+						translateZ(0);
+				}
+			}
+
+			&::before {
+				content: "";
+				position: absolute;
+				bottom: 0;
+				height: 100%;
+				width: 100%;
+				background-image: linear-gradient(
+					to bottom,
+					transparent 10%,
+					rgba(0, 0, 0, 0.5) 50%,
+					rgba(0, 0, 0) 95%
+				);
+				opacity: 0;
+				transition: all 0.3s ease;
+			}
+
+			&:hover::before {
+				opacity: 1;
+			}
+
+			&:hover .img_armadura {
+				opacity: 1;
+				transform: translateY(10%);
+			}
+
+			.box {
+				border-radius: 4px;
+				object-fit: cover;
+				width: 100%;
+			}
+
+			.img_armadura {
+				width: 200px;
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				margin: auto;
+				transform: translateY(25%);
+				transition: 0.3s ease;
+				opacity: 0;
+
+				@include breakpoint {
+					width: 350px;
+				}
+			}
+		}
+
+		.detalle_contenedor {
+			padding-top: 5px;
+
+			@include breakpoint {
+				width: 60%;
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+			}
+
+			.detalle_btn__regresar {
+				@include breakpoint {
+					display: block;
+					text-align: end;
+				}
+
+				.regresar {
+					border: none;
+					font-size: 1rem;
+				}
+			}
+
+			.detalle_nombre {
+				text-align: center;
+				text-decoration: underline;
+
+				@include breakpoint {
+					font-size: 1.8rem;
+				}
+			}
+
+			.detalle_texto {
+				padding-top: 14px;
+
+				@include breakpoint {
+					padding-top: 20px;
+					font-size: 1.2rem;
+				}
+			}
+
+			.detalle_btns {
+				text-align: center;
+				padding-top: 16px;
+
+				@include breakpoint {
+					padding-bottom: 6px;
+				}
+
+				.detalle_btn__editar {
+					padding-inline: 12px;
+					padding-block: 3px;
+					@include border(2px, $button-color);
+					border-radius: 6px;
+
+					@include breakpoint {
+						font-size: 1rem;
+					}
+				}
+
+				.detalle_btn__eliminar {
+					@extend .detalle_btn__editar;
+				}
+			}
+		}
+	}
+}
