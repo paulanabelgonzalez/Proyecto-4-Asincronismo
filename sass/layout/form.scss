@@ -1,0 +1,54 @@
+// .form_editar {
+// 	width: 100%;
+// 	padding: 8px;
+
+form {
+	display: flex;
+	flex-direction: column;
+	gap: 6px;
+
+	@include breakpoint {
+		width: 80%;
+		margin: auto;
+	}
+
+	.contenedor_regresar {
+		text-align: end;
+		padding-right: 16px;
+
+		.btn_regresar {
+			border: none;
+			font-size: 1rem;
+
+			@include breakpoint {
+				display: none;
+			}
+		}
+
+		.regresar_texto {
+			@include breakpoint {
+				display: inline-block;
+				border: none;
+				font-size: 1rem;
+			}
+		}
+	}
+
+	.formulario {
+		@extend form;
+
+		textarea {
+			@include input;
+		}
+	}
+
+	.formulario_btn {
+		text-align: center;
+		padding-top: 6px;
+
+		.form_btn_submit {
+			@include btn;
+		}
+	}
+}
+// }

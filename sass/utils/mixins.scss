@@ -13,3 +13,21 @@
 	padding-inline: 5px;
 	padding-top: 10px;
 }
+
+@mixin input {
+	border-radius: 14px;
+	padding-left: 8px;
+	font-family: $font-secundary;
+	font-size: 1rem;
+}
+
+@mixin btn {
+	padding-inline: 12px;
+	padding-block: 3px;
+	@include border(2px, $button-color);
+	border-radius: 6px;
+
+	@include breakpoint {
+		font-size: 1rem;
+	}
+}

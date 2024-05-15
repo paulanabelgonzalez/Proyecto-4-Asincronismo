@@ -6,6 +6,8 @@
 @import "utils/mixins.scss";
 
 // components
+@import "components/label.scss";
+@import "components/input.scss";
 @import "components/input.scss";
 @import "components/title.scss";
 @import "components/button.scss";
@@ -16,6 +18,7 @@
 @import "layout/seccion_intro.scss";
 @import "layout/seccion_spinner.scss";
 @import "layout/seccion_cards.scss";
+@import "layout/form.scss";
 @import "layout/seccion_card.scss";
 @import "layout/footer.scss";
 

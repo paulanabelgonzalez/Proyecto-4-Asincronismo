@@ -1,7 +1,9 @@
 .detalle {
+	width: 100%;
 	@include margenesCard;
 
 	@include breakpoint {
+		// width: auto;
 		height: auto;
 	}
 	.card_detalle {
@@ -11,6 +13,7 @@
 
 		@include breakpoint {
 			max-width: 1160px;
+			margin: auto;
 			padding: 52px;
 			display: flex;
 			justify-content: space-around;
@@ -146,14 +149,15 @@
 				}
 
 				.detalle_btn__editar {
-					padding-inline: 12px;
-					padding-block: 3px;
-					@include border(2px, $button-color);
-					border-radius: 6px;
+					// padding-inline: 12px;
+					// padding-block: 3px;
+					// @include border(2px, $button-color);
+					// border-radius: 6px;
 
-					@include breakpoint {
-						font-size: 1rem;
-					}
+					// @include breakpoint {
+					// 	font-size: 1rem;
+					// }
+					@include btn;
 				}
 
 				.detalle_btn__eliminar {
