@@ -1,54 +1,59 @@
-// .form_editar {
-// 	width: 100%;
-// 	padding: 8px;
-
-form {
+.contenedor_form {
+	width: 100%;
 	display: flex;
-	flex-direction: column;
-	gap: 6px;
+	justify-content: center;
 
-	@include breakpoint {
-		width: 80%;
-		margin: auto;
-	}
+	form {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+		gap: 6px;
 
-	.contenedor_regresar {
-		text-align: end;
-		padding-right: 16px;
-
-		.btn_regresar {
-			border: none;
-			font-size: 1rem;
-
-			@include breakpoint {
-				display: none;
-			}
+		@include breakpoint {
+			// width: 80%;
+			// margin: auto;
+			max-width: 1160px;
+			gap: 12px;
 		}
 
-		.regresar_texto {
-			@include breakpoint {
-				display: inline-block;
+		.contenedor_regresar {
+			text-align: end;
+			padding-right: 16px;
+
+			.btn_regresar {
 				border: none;
 				font-size: 1rem;
+
+				@include breakpoint {
+					display: none;
+				}
+			}
+
+			.regresar_texto {
+				@include breakpoint {
+					display: inline-block;
+					border: none;
+					font-size: 1rem;
+				}
 			}
 		}
-	}
 
-	.formulario {
-		@extend form;
+		.formulario {
+			@extend form;
+			gap: 6px;
 
-		textarea {
-			@include input;
+			textarea {
+				@include input;
+			}
 		}
-	}
 
-	.formulario_btn {
-		text-align: center;
-		padding-top: 6px;
+		.formulario_btn {
+			text-align: center;
+			padding-top: 6px;
 
-		.form_btn_submit {
-			@include btn;
+			.form_btn_submit {
+				@include btn;
+			}
 		}
 	}
 }
-// }

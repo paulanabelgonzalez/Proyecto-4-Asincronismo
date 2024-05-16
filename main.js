@@ -4,7 +4,7 @@ const ocultar = (ocultar) => ocultar.classList.add("hidden");
 
 const mostrar = (ver) => ver.classList.remove("hidden");
 
-const ocultarYMostrar = (ver, ...ocultar) => {
+const mostrarYOcultar = (ver, ...ocultar) => {
 	ver.classList.remove("hidden");
 	ocultar.forEach((ocultar) => {
 		ocultar.classList.add("hidden");
@@ -12,7 +12,7 @@ const ocultarYMostrar = (ver, ...ocultar) => {
 };
 
 const salirDeIntro = () => {
-	ocultarYMostrar($(".contenedor_nav"), $(".logo_intro"), $(".intro"));
+	mostrarYOcultar($(".contenedor_nav"), $(".logo_intro"), $(".intro"));
 	getCaballeros(urlBase);
 };
 
@@ -39,7 +39,7 @@ const renderCaballeros = (caballeros) => {
 	mostrar($(".spinner"));
 
 	setTimeout(() => {
-		ocultarYMostrar($(".cards"), $(".spinner"));
+		mostrarYOcultar($(".cards"), $(".spinner"));
 		mostrar($(".crear_caballero"));
 		$(".cards").innerHTML = "";
 
@@ -86,10 +86,10 @@ const verCardDetalle = (caballero) => {
 };
 
 const renderDetalle = (card) => {
-	ocultarYMostrar($(".spinner"), $(".cards"));
+	mostrarYOcultar($(".spinner"), $(".cards"), $(".crear_caballero"));
 
 	setTimeout(() => {
-		ocultarYMostrar($(".detalle"), $(".spinner"));
+		mostrarYOcultar($(".detalle"), $(".spinner"));
 
 		const {
 			box,
@@ -134,82 +134,88 @@ const renderDetalle = (card) => {
 				</div>
 			</div>
 		</div> 
-	    <form class="hidden">
-			<div class="form contenedor_regresar">
-				<button type="button" class="btn_regresar">X</button>
-				<button type="button" class="regresar_texto hidden"><< Cerrar</button>
-			</div>
-			<div class="formulario">
-				<label for="form_nombre">Nombre</label>
-				<input
-					type="text"
-					name="form_nombre"
-					id="form_nombre"
-				    value="${nombre}"
-				/>
-			</div>
-			<div class="formulario">
-				<label for="form_armadura">Armadura</label>
-				<input
-					type="text"
-					name="form_armadura"
-					id="form_armadura"
-					value="${armadura}"
-				/>
-			</div>
-			<div class="formulario">
-				<label for="form_caballero">Caballero</label>
-				<input
-					type="text"
-					name="form_caballero"
-					id="form_caballero"
-					value="${caballero}"
-				/>
-			</div>
-			<div class="formulario">
-				<label for="form_genero">Género</label>
-				<input
-				    type="text"
-					name="form_genero"
-					id="form_genero"
-					value="${genero}"
-				/>
-			</div>
-			<div class="formulario">
-				<label for="form_descripcion">Descripción</label>
-				<textarea
-					name="form_descripcion"
-					id="form_descripcion"
-				>${descripcion}</textarea>
-			</div>
-			<div class="formulario">
-				<label for="form_detalle">Detalle</label>
-				<textarea
-					name="form_detalle"
-					id="form_detalle"
-				>${detalle}</textarea>
-			</div>
-			<div class="formulario">
-				<label for="form_saga">Saga</label>
-				<input
-					type="text"
-					name="form_saga"
-					id="form_saga"
-					value="${saga}"
-				/>
-			</div>
-			<div class="formulario_btn">
-				<button type="submit" class="form_btn_submit">Editar</button>
-			</div>
-		</form>`;
+       <div class="form  contenedor_form hidden">
+	        <form id="form">
+			    <div class="form contenedor_regresar">
+				    <button type="button" class="btn_regresar">X</button>
+				    <button type="button" class="regresar_texto hidden"><< Cerrar</button>
+			    </div>
+			    <div class="formulario">
+				    <label for="form_nombre">Nombre</label>
+				    <input
+					    type="text"
+					    name="form_nombre"
+					    id="form_nombre"
+				        value="${nombre}"
+				    />
+			    </div>
+			    <div class="formulario">
+				    <label for="form_armadura">Armadura</label>
+				    <input
+					    type="text"
+					    name="form_armadura"
+					    id="form_armadura"
+					    value="${armadura}"
+				    />
+			    </div>
+			    <div class="formulario">
+				    <label for="form_caballero">Caballero</label>
+				    <input
+					    type="text"
+					    name="form_caballero"
+					    id="form_caballero"
+					    value="${caballero}"
+				    />
+			    </div>
+			    <div class="formulario">
+				    <label for="form_genero">Género</label>
+				    <input
+				        type="text"
+					    name="form_genero"
+					    id="form_genero"
+					    value="${genero}"
+				    />
+			    </div>
+			    <div class="formulario">
+				    <label for="form_descripcion">Descripción</label>
+				    <textarea
+					    name="form_descripcion"
+					    id="form_descripcion"
+				    >${descripcion}</textarea>
+			    </div>
+			    <div class="formulario">
+				    <label for="form_detalle">Detalle</label>
+				    <textarea
+					    name="form_detalle"
+					    id="form_detalle"
+				    >${detalle}</textarea>
+			    </div>
+			    <div class="formulario">
+				    <label for="form_saga">Saga</label>
+				    <input
+					    type="text"
+					    name="form_saga"
+					    id="form_saga"
+					    value="${saga}"
+				    />
+			    </div>
+			    <div class="formulario_btn">
+				    <button type="submit" class="form_btn_submit">Editar</button>
+			    </div>
+		    </form>
+        </div> `;
 
 		$(".detalle_btn__editar").addEventListener("click", () =>
-			mostrar($("form"))
+			mostrar($(".form"))
 		);
 
 		cerrarForm($(".btn_regresar"), $(".regresar_texto"));
 
-		regresarContenedorAnterior($(".detalle_regresar"), $(".regresar"));
+		regresarContenedorAnterior(
+			$(".detalle_regresar"),
+			$(".regresar"),
+			$(".detalle")
+		);
 
 		const confirmarEditar = (card) => {
 			const caballeroEditado = {
@@ -245,16 +251,66 @@ const renderDetalle = (card) => {
 	}, 2700);
 };
 
-const regresarContenedorAnterior = (btn, btn_texto) => {
+const regresarContenedorAnterior = (btn, btn_texto, div) => {
 	btn.addEventListener("click", () => {
-		ocultar($(".detalle")), getCaballeros(urlBase);
+		ocultar(div), getCaballeros(urlBase);
 	});
 	btn_texto.addEventListener("click", () => {
-		ocultar($(".detalle")), getCaballeros(urlBase);
+		ocultar(div), getCaballeros(urlBase);
 	});
 };
 
 const cerrarForm = (btn, btn_texto) => {
-	btn.addEventListener("click", () => $("form").classList.add("hidden"));
-	btn_texto.addEventListener("click", () => $("form").classList.add("hidden"));
+	btn.addEventListener("click", () => $(".form").classList.add("hidden"));
+	btn_texto.addEventListener("click", () => $(".form").classList.add("hidden"));
 };
+
+$(".crear_caballero").addEventListener("click", () => {
+	mostrarYOcultar($(".form_agregar"), $(".cards"), $(".crear_caballero"));
+});
+
+regresarContenedorAnterior(
+	$(".agregar_btn_cerrar"),
+	$(".agregar_texto_cerrar"),
+	$(".form_agregar")
+);
+
+const agregarCaballero = () => {
+	const caballeroNuevo = {
+		nombre: $("#form_agregar__nombre").value,
+		armadura: $("#form_agregar__armadura").value,
+		caballero: $("#form_agregar__caballero").value,
+		genero: $("#form_agregar__genero").value,
+		avatar: $("#form_agregar__avatar").value,
+		logo: $("#form_agregar__logo").value,
+		descripcion: $("#form_agregar__descripcion").value,
+		detalle: $("#form_agregar__detalle").value,
+		box: $("#form_agregar__box").value,
+		img_armadura: $("#form_agregar__img_armadura").value,
+		saga: $("#form_agregar__saga").value,
+	};
+
+	fetch(`${urlBase}`, {
+		method: "POST",
+		headers: {
+			"Content-Type": "application/json",
+		},
+		body: JSON.stringify(caballeroNuevo),
+	})
+		.then((res) =>
+			res.json().then((data) => {
+				$("#form_agregar__id").reset();
+				ocultar($(".form_agregar"));
+				getCaballeros(urlBase);
+				console.log(data);
+			})
+		)
+		.catch((err) => console.log(err));
+
+	console.log(caballeroNuevo);
+};
+
+$("#form_agregar__id").addEventListener("submit", (e) => {
+	e.preventDefault();
+	agregarCaballero();
+});

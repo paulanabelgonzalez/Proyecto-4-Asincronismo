@@ -66,117 +66,140 @@
 				<img class="spinner_img" src="assets/spinner.gif" alt="spinner" />
 				<p class="spinner_texto">Cargando...</p>
 			</div>
-			<button class="crear_caballero hidden">Crear Caballero</button>
+			<button class="crear_caballero hidden">Agregar Caballero</button>
 			<section class="cards hidden"></section>
 			<section class="detalle hidden"></section>
-			<section class="form_agregar hidden">
-				<!-- <form>
+			<div class="form_agregar contenedor_form hidden">
+				<form id="form_agregar__id">
 					<div class="form contenedor_regresar">
-						<button class="btn_regresar">X</button>
-						<button class="regresar_texto hidden"><< Cerrar</button>
+						<button type="button" class="agregar_btn_cerrar btn_regresar">
+							X
+						</button>
+						<button
+							type="button"
+							class="agregar_texto_cerrar regresar_texto hidden"
+						>
+							<< Cerrar
+						</button>
 					</div>
 					<div class="formulario">
-						<label for="form_nombre">Nombre</label>
+						<label for="form_agregar__nombre">Nombre</label>
 						<input
 							type="text"
-							name="form_nombre"
-							id="form_nombre"
+							name="form_agregar__nombre"
+							id="form_agregar__nombre"
 							placeholder="Nombre de nuevo caballero"
+							required
+							minlength="2"
 						/>
 					</div>
 					<div class="formulario">
-						<label for="form_armadura">Armadura</label>
+						<label for="form_agregar__armadura">Armadura</label>
 						<input
 							type="text"
-							name="form_armadura"
-							id="form_armadura"
+							name="form_agregar__armadura"
+							id="form_agregar__armadura"
 							placeholder="Qué tipo de armadura es: bronce, oro, etc.  "
+							required
+							minlength="3"
 						/>
 					</div>
 					<div class="formulario">
-						<label for="form_caballero">Caballero</label>
+						<label for="form_agregar__caballero">Caballero</label>
 						<input
 							type="text"
-							name="form_caballero"
-							id="form_caballero"
+							name="form_agregar__caballero"
+							id="form_agregar__caballero"
 							placeholder="Qué caballero es"
+							required
+							minlength="3"
 						/>
 					</div>
 					<div class="formulario">
-						<label for="form_genero">Género</label>
+						<label for="form_agregar__genero">Género</label>
 						<input
 							type="text"
-							name="form_genero"
-							id="form_genero"
+							name="form_agregar__genero"
+							id="form_agregar__genero"
 							placeholder="Género"
+							required
 						/>
 					</div>
 					<div class="formulario">
-						<label for="form_avatar">Avatar</label>
+						<label for="form_agregar__avatar">Avatar</label>
 						<input
 							type="url"
-							name="form_avatar"
-							id="form_avatar"
+							name="form_agregar__avatar"
+							id="form_agregar__avatar"
 							placeholder="Url de la imagen del caballero"
 						/>
 					</div>
 					<div class="formulario">
-						<label for="form_logo">Logo</label>
+						<label for="form_agregar__logo">Logo</label>
 						<input
 							type="url"
-							name="form_logo"
-							id="form_logo"
+							name="form_agregar__logo"
+							id="form_agregar__logo"
 							placeholder="Url de la imagen del logo"
 						/>
 					</div>
 					<div class="formulario">
-						<label for="form_descripcion">Descripción</label>
+						<label for="form_agregar__descripcion">Descripción</label>
 						<textarea
-							name="form_descripcion"
-							id="form_descripcion"
+							name="form_agregar__descripcion"
+							id="form_agregar__descripcion"
 							placeholder="Descripción breve del caballero"
+							required
+							maxlength="50"
 						></textarea>
 					</div>
 					<div class="formulario">
-						<label for="form_detalle">Detalle</label>
+						<label for="form_agregar__detalle">Detalle</label>
 						<textarea
-							name="form_detalle"
-							id="form_detalle"
+							name="form_agregar__detalle"
+							id="form_agregar__detalle"
 							placeholder="Descripción del caballero"
+							required
+							maxlength="100"
 						></textarea>
 					</div>
 					<div class="formulario">
-						<label for="form_box">Caja de Pandora</label>
+						<label for="form_agregar__box">Caja de Pandora</label>
 						<input
 							type="url"
-							name="form_box"
-							id="form_box"
+							name="form_agregar__box"
+							id="form_agregar__box"
 							placeholder="Url de la imagen de la caja de pandora"
 						/>
 					</div>
 					<div class="formulario">
-						<label for="form_img__armadura">Imagen de la Armadura</label>
+						<label for="form_agregar__img_armadura"
+							>Imagen de la Armadura</label
+						>
 						<input
 							type="url"
-							name="form_img__armadura"
-							id="form_img__armadura"
+							name="form_agregar__img_armadura"
+							id="form_agregar__img_armadura"
 							placeholder="Url de la imagen de la armadura"
 						/>
 					</div>
 					<div class="formulario">
-						<label for="form_saga">Saga</label>
+						<label for="form_agregar__saga">Saga</label>
 						<input
 							type="text"
-							name="form_saga"
-							id="form_saga"
+							name="form_agregar__saga"
+							id="form_agregar__saga"
 							placeholder="Saga perteneciente"
+							required
 						/>
 					</div>
 					<div class="formulario_btn">
-						<button type="submit" class="form_btn_submit">Guardar</button>
+						<button type="submit" class="agregar_btn__submit form_btn_submit">
+							Guardar
+						</button>
 					</div>
-				</form> -->
-			</section>
+				</form>
+			</div>
 			<section>
 				<div class="ventana_modal"></div>
 			</section>
