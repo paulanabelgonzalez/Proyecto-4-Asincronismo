@@ -1,12 +1,21 @@
-.spinner_img {
-	max-width: 300px;
-	border-radius: 100px;
-}
+.spinner {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
 
-.spinner_texto {
-	padding-top: 17px;
-	text-align: center;
-	font-family: $font-alt;
-	color: $button-color;
-	font-size: 1rem;
+	.spinner_img {
+		max-width: 300px;
+		border-radius: 100px;
+	}
+
+	.spinner_texto {
+		padding-top: 17px;
+		text-align: center;
+		font-family: $font-alt;
+		color: $button-color;
+		font-size: 1rem;
+	}
 }

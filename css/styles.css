@@ -93,19 +93,38 @@ header .contenedor_nav .logo_nav .hamburguesa {
 main {
   background-color: #ede9e2;
   height: 63vh;
+  padding-block: 12px;
+  padding-inline: 5px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
   overflow-y: auto;
 }
 @media (min-width: 970px) {
   main {
     height: 73vh;
+    padding-block: 22px;
+    gap: 20px;
+  }
+}
+main .crear_caballero {
+  padding-inline: 12px;
+  padding-block: 3px;
+  border: 2px solid #ac3249;
+  border-radius: 6px;
+  padding: 10px;
+  border: 3px solid;
+}
+@media (min-width: 970px) {
+  main .crear_caballero {
+    font-size: 1rem;
   }
 }
 
 .intro {
   max-width: 600px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -130,12 +149,19 @@ main {
   }
 }
 
-.spinner_img {
+.spinner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.spinner .spinner_img {
   max-width: 300px;
   border-radius: 100px;
 }
-
-.spinner_texto {
+.spinner .spinner_texto {
   padding-top: 17px;
   text-align: center;
   font-family: "Russo One", sans-serif;
@@ -144,9 +170,6 @@ main {
 }
 
 .cards {
-  height: 100%;
-  padding-inline: 5px;
-  padding-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 8px;

@@ -1,15 +1,23 @@
 main {
 	background-color: $light-primary;
 	height: 63vh;
+	padding-block: 12px;
+	padding-inline: 5px;
 	display: flex;
-	// flex-direction: column;
+	flex-direction: column;
 	align-items: center;
-	justify-content: center;
-	// gap: 64px;
+	gap: 10px;
 	overflow-y: auto;
 
 	@include breakpoint {
 		height: 73vh;
-		// gap: 4px;
+		padding-block: 22px;
+		gap: 20px;
+	}
+
+	.crear_caballero {
+		@include btn;
+		padding: 10px;
+		border: 3px solid;
 	}
 }

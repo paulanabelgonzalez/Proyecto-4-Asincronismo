@@ -40,6 +40,8 @@ const renderCaballeros = (caballeros) => {
 
 	setTimeout(() => {
 		ocultarYMostrar($(".cards"), $(".spinner"));
+		mostrar($(".crear_caballero"));
+		$(".cards").innerHTML = "";
 
 		caballeros.forEach((personaje) => {
 			const { nombre, caballero, armadura, descripcion, avatar, id } =
