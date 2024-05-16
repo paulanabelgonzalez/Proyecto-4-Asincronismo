@@ -6,8 +6,13 @@
 }
 
 label {
-  font-size: 1.1rem;
+  font-size: 1rem;
   font-family: cursive;
+}
+@media (min-width: 970px) {
+  label {
+    font-size: 1.2rem;
+  }
 }
 
 input {
@@ -106,6 +111,7 @@ main {
 
 .intro {
   max-width: 600px;
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -130,12 +136,19 @@ main {
   }
 }
 
-.spinner_img {
+.spinner {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.spinner .spinner_img {
   max-width: 300px;
   border-radius: 100px;
 }
-
-.spinner_texto {
+.spinner .spinner_texto {
   padding-top: 17px;
   text-align: center;
   font-family: "Russo One", sans-serif;
@@ -144,9 +157,6 @@ main {
 }
 
 .cards {
-  height: 100%;
-  padding-inline: 5px;
-  padding-top: 10px;
   display: flex;
   flex-direction: column;
   gap: 8px;
@@ -200,68 +210,80 @@ main {
   font-size: 0.7rem;
 }
 
-form, form .formulario {
+.contenedor_form {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.contenedor_form form, .contenedor_form form .formulario {
+  width: 100%;
   display: flex;
   flex-direction: column;
   gap: 6px;
 }
 @media (min-width: 970px) {
-  form, form .formulario {
-    width: 80%;
-    margin: auto;
+  .contenedor_form form, .contenedor_form form .formulario {
+    max-width: 1160px;
+    gap: 12px;
   }
 }
-form .contenedor_regresar {
+.contenedor_form form .contenedor_regresar {
   text-align: end;
   padding-right: 16px;
 }
-form .contenedor_regresar .btn_regresar {
+.contenedor_form form .contenedor_regresar .btn_regresar {
   border: none;
   font-size: 1rem;
 }
 @media (min-width: 970px) {
-  form .contenedor_regresar .btn_regresar {
+  .contenedor_form form .contenedor_regresar .btn_regresar {
     display: none;
   }
 }
 @media (min-width: 970px) {
-  form .contenedor_regresar .regresar_texto {
+  .contenedor_form form .contenedor_regresar .regresar_texto {
     display: inline-block;
     border: none;
     font-size: 1rem;
   }
 }
-form .formulario textarea {
+.contenedor_form form .formulario {
+  gap: 6px;
+}
+.contenedor_form form .formulario textarea {
   border-radius: 14px;
   padding-left: 8px;
   font-family: "Kalam", cursive;
   font-size: 1rem;
 }
-form .formulario_btn {
+.contenedor_form form .formulario_btn {
   text-align: center;
   padding-top: 6px;
 }
-form .formulario_btn .form_btn_submit {
+.contenedor_form form .formulario_btn .form_btn_submit {
   padding-inline: 12px;
   padding-block: 3px;
   border: 2px solid #ac3249;
   border-radius: 6px;
 }
 @media (min-width: 970px) {
-  form .formulario_btn .form_btn_submit {
+  .contenedor_form form .formulario_btn .form_btn_submit {
     font-size: 1rem;
   }
 }
 
 .detalle {
   width: 100%;
-  height: 100%;
-  padding-inline: 5px;
-  padding-top: 10px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
 }
 @media (min-width: 970px) {
   .detalle {
-    height: auto;
+    height: 100%;
   }
 }
 .detalle .card_detalle {
@@ -272,7 +294,6 @@ form .formulario_btn .form_btn_submit {
 @media (min-width: 970px) {
   .detalle .card_detalle {
     max-width: 1160px;
-    margin: auto;
     padding: 52px;
     display: flex;
     justify-content: space-around;
