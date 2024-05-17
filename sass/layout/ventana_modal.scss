@@ -1,0 +1,68 @@
+.contenedor_modal {
+	width: 100%;
+	height: 100%;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	.ventana_modal {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		@include border(2px, $button-color);
+		border-radius: 10px;
+		padding-block: 15px;
+
+		@include breakpoint {
+			@include border(3px, $button-color);
+		}
+
+		.modal_contenedor__btn {
+			width: 100%;
+			text-align: end;
+			padding-inline-end: 3%;
+
+			#modal_btn__cerrar {
+				border: none;
+				font-size: 1rem;
+			}
+		}
+
+		// #modal_btn__cerrar {
+		// 	@include breakpoint {
+		// 		display: none;
+		// 	}
+		// }
+
+		// #modal_texto__cerrar {
+		// 	@include breakpoint {
+		// 		display: inline-block;
+		// 		border: none;
+		// 		font-size: 1rem;
+		// 	}
+		// }
+
+		.modal_flex {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+
+			.modal_img {
+				width: 28%;
+			}
+
+			.modal_texto {
+				font-family: $font-secundary;
+				font-size: 1rem;
+
+				@include breakpoint {
+					font-size: 1.2rem;
+				}
+			}
+		}
+
+		#modal_aceptar__eliminar {
+			@include btn;
+		}
+	}
+}

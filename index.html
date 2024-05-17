@@ -132,6 +132,7 @@
 							name="form_agregar__avatar"
 							id="form_agregar__avatar"
 							placeholder="Url de la imagen del caballero"
+							required
 						/>
 					</div>
 					<div class="formulario">
@@ -141,6 +142,7 @@
 							name="form_agregar__logo"
 							id="form_agregar__logo"
 							placeholder="Url de la imagen del logo"
+							required
 						/>
 					</div>
 					<div class="formulario">
@@ -170,6 +172,7 @@
 							name="form_agregar__box"
 							id="form_agregar__box"
 							placeholder="Url de la imagen de la caja de pandora"
+							required
 						/>
 					</div>
 					<div class="formulario">
@@ -181,6 +184,7 @@
 							name="form_agregar__img_armadura"
 							id="form_agregar__img_armadura"
 							placeholder="Url de la imagen de la armadura"
+							required
 						/>
 					</div>
 					<div class="formulario">
@@ -200,9 +204,25 @@
 					</div>
 				</form>
 			</div>
-			<section>
-				<div class="ventana_modal"></div>
-			</section>
+			<div class="contenedor_modal hidden">
+				<div class="ventana_modal">
+					<div class="modal_contenedor__btn">
+						<button id="modal_btn__cerrar">X</button>
+					</div>
+					<div class="modal_flex">
+						<img
+							src="assets/alerta.gif"
+							alt="logo de precaución"
+							class="modal_img"
+						/>
+						<div class="modal_texto">
+							<p>Está seguro de borrar este contenido?</p>
+							<p>Una vez borrado no lo podrá recuperar.</p>
+						</div>
+					</div>
+					<button id="modal_aceptar__eliminar">Eliminar</button>
+				</div>
+			</div>
 		</main>
 		<footer>
 			<a

@@ -50,7 +50,7 @@ const renderCaballeros = (caballeros) => {
 			$(".cards").innerHTML += `
         <div class="card">
 			<div class="card_img">
-				<img src="${avatar}" alt="imagen de saori" />
+				<img src="${avatar}" alt="imagen de ${nombre}" />
 			</div>
 			<div class="card_info">
 				<div class="info">
@@ -72,9 +72,13 @@ const renderCaballeros = (caballeros) => {
 
 const eventoABotonesDetalle = (btns) => {
 	btns.forEach((btn) =>
-		btn.addEventListener("click", () =>
-			verCardDetalle(btn.getAttribute("data-id"))
-		)
+		btn.addEventListener("click", () => {
+			verCardDetalle(btn.getAttribute("data-id"));
+			$("#modal_aceptar__eliminar").setAttribute(
+				"data-id",
+				btn.getAttribute("data-id")
+			);
+		})
 	);
 };
 
@@ -130,7 +134,7 @@ const renderDetalle = (card) => {
 				</div>
 				<div class="detalle_btns">
 					<button class="detalle_btn__editar" data-id="${id}">Editar</button>
-					<button class="detalle_btn__eliminar" data-id="${id}">Eliminar</button>
+					<button class="detalle_btn__eliminar">Eliminar</button>
 				</div>
 			</div>
 		</div> 
@@ -248,6 +252,10 @@ const renderDetalle = (card) => {
 			ocultar($(".detalle"));
 			ocultar($("form"));
 		});
+
+		$(".detalle_btn__eliminar").addEventListener("click", () =>
+			mostrarYOcultar($(".contenedor_modal"), $(".detalle"))
+		);
 	}, 2700);
 };
 
@@ -297,14 +305,13 @@ const agregarCaballero = () => {
 		},
 		body: JSON.stringify(caballeroNuevo),
 	})
-		.then((res) =>
-			res.json().then((data) => {
-				$("#form_agregar__id").reset();
-				ocultar($(".form_agregar"));
-				getCaballeros(urlBase);
-				console.log(data);
-			})
-		)
+		.then((res) => res.json())
+		.then((data) => {
+			$("#form_agregar__id").reset();
+			ocultar($(".form_agregar"));
+			getCaballeros(urlBase);
+			console.log(data);
+		})
 		.catch((err) => console.log(err));
 
 	console.log(caballeroNuevo);
@@ -313,4 +320,20 @@ const agregarCaballero = () => {
 $("#form_agregar__id").addEventListener("submit", (e) => {
 	e.preventDefault();
 	agregarCaballero();
+});
+
+$("#modal_btn__cerrar").addEventListener("click", () =>
+	mostrarYOcultar($(".detalle"), $(".contenedor_modal"))
+);
+
+$("#modal_aceptar__eliminar").addEventListener("click", () => {
+	fetch(`${urlBase}/${$("#modal_aceptar__eliminar").getAttribute("data-id")}`, {
+		method: "DELETE",
+	})
+		.then((res) => res.json())
+		.then((data) => {
+			ocultar($(".contenedor_modal"));
+			getCaballeros(urlBase);
+		})
+		.catch((err) => console.log(err));
 });
