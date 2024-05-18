@@ -1,10 +1,16 @@
 .detalle {
 	width: 100%;
-	@include margenesCard;
+	// @include margenesCard;
+	height: auto;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 12px;
 
 	@include breakpoint {
 		// width: auto;
-		height: auto;
+		height: 100%;
 	}
 	.card_detalle {
 		padding: 10px;
@@ -13,7 +19,6 @@
 
 		@include breakpoint {
 			max-width: 1160px;
-			margin: auto;
 			padding: 52px;
 			display: flex;
 			justify-content: space-around;

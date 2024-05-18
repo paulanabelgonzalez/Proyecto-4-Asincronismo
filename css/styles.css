@@ -98,14 +98,36 @@ header .contenedor_nav .logo_nav .hamburguesa {
 main {
   background-color: #ede9e2;
   height: 63vh;
+  padding-block: 12px;
+  padding-inline: 5px;
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+  gap: 10px;
   overflow-y: auto;
 }
 @media (min-width: 970px) {
   main {
     height: 73vh;
+    padding-block: 22px;
+    gap: 20px;
+  }
+}
+main .crear_caballero {
+  padding-inline: 12px;
+  padding-block: 3px;
+  border: 2px solid #ac3249;
+  border-radius: 6px;
+  padding: 10px;
+}
+@media (min-width: 970px) {
+  main .crear_caballero {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 970px) {
+  main .crear_caballero {
+    border: 3px solid;
   }
 }
 
