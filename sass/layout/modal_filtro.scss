@@ -1,0 +1,28 @@
+.modal_filtro {
+	@include border(2px, $button-color);
+	border-radius: 10px;
+	padding: 26px;
+	font-size: 1rem;
+
+	@include breakpoint {
+		@include border(3px, $button-color);
+		font-size: 1.2rem;
+	}
+
+	.contenedor_btn__filtro {
+		text-align: end;
+		padding-bottom: 12px;
+
+		#filtro_btn__cerrar {
+			border: none;
+			font-size: 1rem;
+			@include breakpoint {
+				font-size: 1.2rem;
+			}
+		}
+	}
+	.filtro_modal__texto {
+		font-family: $font-secundary;
+		padding-bottom: 12px;
+	}
+}

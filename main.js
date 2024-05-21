@@ -16,6 +16,7 @@ const salirDeIntro = () => {
 	getCaballeros(urlBase);
 };
 
+// funcion para que al finalizar el video se vea la pagina automaticamente.
 const introTerminada = () => {
 	$(".video").onended = () => {
 		salirDeIntro();
@@ -30,12 +31,23 @@ const urlBase = "https://662f72bd43b6a7dce30f86c9.mockapi.io/api/caballeros";
 
 const getCaballeros = (url) => {
 	fetch(url)
-		.then((res) => res.json())
-		.then((data) => renderCaballeros(data))
+		.then((res) => {
+			if (res.ok) {
+				return res.json();
+			}
+		})
+		.then((data) => {
+			if (data) {
+				renderCaballeros(data);
+			} else {
+				mostrarYOcultar($(".modal_filtro"), $(".cards"));
+			}
+		})
 		.catch((err) => console.log(err));
 };
 
 const renderCaballeros = (caballeros) => {
+	ocultar($(".modal_filtro"));
 	mostrar($(".spinner"));
 
 	setTimeout(() => {
@@ -48,7 +60,7 @@ const renderCaballeros = (caballeros) => {
 				personaje;
 
 			$(".cards").innerHTML += `
-        <div class="card">
+         <div class="card">
 			<div class="card_img">
 				<img src="${avatar}" alt="imagen de ${nombre}" />
 			</div>
@@ -336,4 +348,33 @@ $("#modal_aceptar__eliminar").addEventListener("click", () => {
 			getCaballeros(urlBase);
 		})
 		.catch((err) => console.log(err));
+});
+
+const urlParams = new URLSearchParams(urlBase.search);
+
+$("#filtro_armadura").addEventListener("change", (e) => {
+	armadura = e.target.value;
+	urlParams.set("armadura", e.target.value);
+	ocultar($(".cards"));
+	getCaballeros(`${urlBase}/?${urlParams}`);
+});
+
+$("#filtro_genero").addEventListener("change", (e) => {
+	genero = e.target.value;
+	urlParams.set("genero", e.target.value);
+	ocultar($(".cards"));
+	getCaballeros(`${urlBase}/?${urlParams}`);
+});
+
+$("#filtro_saga").addEventListener("change", (e) => {
+	saga = e.target.value;
+	urlParams.set("saga", e.target.value);
+	ocultar($(".cards"));
+	getCaballeros(`${urlBase}/?${urlParams}`);
+});
+
+$("#filtro_nombre").addEventListener("keyup", (e) => {
+	nombre = e.target.value;
+	urlParams.set("nombre", e.target.value);
+	getCaballeros(`${urlBase}/?${urlParams}`);
 });

@@ -38,7 +38,7 @@
 							/>
 						</div>
 					</div>
-					<div class="buscador hidden">
+					<!-- <div class="buscador hidden">
 						<input
 							type="text"
 							id="bucador_personaje"
@@ -47,7 +47,7 @@
 						<button id="modo">
 							<img src="assets/btn-dark.png" alt="imagen boton modo oscuro" />
 						</button>
-					</div>
+					</div> -->
 				</div>
 			</nav>
 		</header>
@@ -67,6 +67,43 @@
 				<p class="spinner_texto">Cargando...</p>
 			</div>
 			<button class="crear_caballero hidden">Agregar Caballero</button>
+			<div class="contenedor_filtros">
+				<input
+					type="text"
+					id="filtro_nombre"
+					placeholder="Nombre del personaje"
+				/>
+				<div class="filtros_contenedor__select">
+					<select name="filtro_armadura" id="filtro_armadura">
+						<option value="">Armaduras...</option>
+						<option value="Bronce">Bronce</option>
+						<option value="Plata">Plata</option>
+						<option value="Oro">Oro</option>
+						<option value="Divina">Divina</option>
+					</select>
+					<select name="filtro_genero" id="filtro_genero">
+						<option value="">Género...</option>
+						<option value="Femenino">Femenino</option>
+						<option value="Masculino">Masculino</option>
+					</select>
+					<select name="filtro_saga" id="filtro_saga">
+						<option value="">Saga...</option>
+						<option value="Todas">Todas</option>
+						<option value="12 Casas">12 Casas</option>
+						<option value="Hades">Hades</option>
+						<option value="Asgard">Asgard</option>
+						<option value="Poseidón">Poseidón</option>
+					</select>
+				</div>
+			</div>
+			<div class="modal_filtro hidden">
+				<div class="contenedor_btn__filtro">
+					<button id="filtro_btn__cerrar">X</button>
+				</div>
+				<p class="filtro_modal__texto">
+					Lo sentimos, no hay ningún caballero con esas descripciones.
+				</p>
+			</div>
 			<section class="cards hidden"></section>
 			<section class="detalle hidden"></section>
 			<div class="form_agregar contenedor_form hidden">

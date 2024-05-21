@@ -5,9 +5,11 @@ main {
 	padding-inline: 5px;
 	display: flex;
 	flex-direction: column;
+	justify-content: center;
 	align-items: center;
 	gap: 10px;
 	overflow-y: auto;
+	justify-content: flex-start;
 
 	@include breakpoint {
 		height: 73vh;
