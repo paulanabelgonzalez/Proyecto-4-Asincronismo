@@ -415,21 +415,18 @@ $("#filtro_saga").addEventListener("change", (e) => {
 	ocultar($(".cards"));
 	getCaballeros(`${urlBase}/?${urlParams}`);
 });
-// falta arreglar
-// $("#filtro_nombre").addEventListener("keyup", (e) => {
-// 	nombre = e.target.value;
-// 	urlParams.set("nombre", e.target.value);
-// 	getCaballeros(`${urlBase}/?${urlParams}`);
-// });
 
 $("#filtro_nombre__lupa").addEventListener("click", () => {
 	nombre = $("#filtro_nombre").value;
 	urlParams.set("nombre", nombre);
-	// mostrarYOcultar($(".volver_filtro"), $(".cards"), $(".crear_caballero"));
-	ocultar($(".cards"));
-	// ocultar($(".crear_caballero"));
+	mostrarYOcultar($(".volver_filtro"), $(".cards"), $(".crear_caballero"));
+	cambiarIconoHamburguesa();
 	getCaballeros(`${urlBase}/?${urlParams}`);
-	mostrar($(".volver_filtro"));
+});
+
+$(".volver_filtro").addEventListener("click", () => {
+	mostrarYOcultar($(".crear_caballero"), $(".cards"), $(".volver_filtro"));
+	getCaballeros(urlBase);
 });
 
 $("#filtro_btn__cerrar").addEventListener("click", () => {

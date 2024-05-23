@@ -16,13 +16,4 @@ main {
 		padding-block: 22px;
 		gap: 20px;
 	}
-
-	.crear_caballero {
-		@include btn;
-		padding: 10px;
-
-		@include breakpoint {
-			border: 3px solid;
-		}
-	}
 }

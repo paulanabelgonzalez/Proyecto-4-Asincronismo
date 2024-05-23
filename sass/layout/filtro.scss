@@ -1,7 +1,7 @@
 .contenedor_filtros {
 	padding: 10px;
 
-	@media (min-width: 970px) {
+	@include breakpoint {
 		width: 400px;
 		position: absolute;
 		top: 4%;
