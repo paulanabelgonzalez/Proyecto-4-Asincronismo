@@ -50,10 +50,24 @@ header {
 			}
 
 			.hamburguesa {
-				max-width: 45px;
+				// max-width: 45px;
+				border: none;
+				background-color: #e5dbc7;
 
 				@include breakpoint {
 					display: none;
+				}
+
+				img {
+					width: 50px;
+				}
+			}
+
+			.cerrar_hamburguesa {
+				@extend .hamburguesa;
+
+				img {
+					width: 51px;
 				}
 			}
 		}

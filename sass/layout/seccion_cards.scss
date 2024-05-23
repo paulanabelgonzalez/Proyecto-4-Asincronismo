@@ -1,63 +1,70 @@
 .cards {
 	display: flex;
 	flex-direction: column;
-	gap: 8px;
+	align-items: center;
+	gap: 18px;
 
-	@include breakpoint {
-		flex-direction: row;
-		flex-wrap: wrap;
-		gap: 15px;
-	}
-
-	.card {
-		max-width: 600px;
-		@include border(1px, black);
-		padding: 10px;
-		border-radius: 10px;
+	.contenedor_cards {
 		display: flex;
-		gap: 15px;
+		flex-direction: column;
+		gap: 8px;
 
 		@include breakpoint {
-			width: 458px;
+			flex-direction: row;
+			flex-wrap: wrap;
+			gap: 15px;
 		}
 
-		img {
-			width: 170px;
-			aspect-ratio: 2 / 3;
-			object-fit: cover;
-		}
-
-		.card_info {
+		.card {
+			max-width: 600px;
+			@include border(1px, black);
+			padding: 10px;
+			border-radius: 10px;
 			display: flex;
-			flex-direction: column;
-			justify-content: space-between;
-			padding-bottom: 3px;
+			gap: 15px;
 
-			.nombre {
-				text-decoration: underline;
+			@include breakpoint {
+				width: 458px;
 			}
 
-			.caballero {
-				padding-top: 3px;
+			img {
+				width: 170px;
+				aspect-ratio: 2 / 3;
+				object-fit: cover;
 			}
 
-			.armadura {
-				padding-top: 1px;
-				font-weight: 600;
-			}
+			.card_info {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				padding-bottom: 3px;
 
-			.descripcion {
-				padding-top: 4px;
-			}
+				.nombre {
+					text-decoration: underline;
+				}
 
-			.card_btn {
-				padding-top: 8px;
+				.caballero {
+					padding-top: 3px;
+				}
 
-				.btn_detalle {
-					@include border(2px, $button-color);
-					padding: 4px;
-					border-radius: 6px;
-					font-size: 0.7rem;
+				.armadura {
+					padding-top: 1px;
+					font-weight: 600;
+				}
+
+				.descripcion {
+					padding-top: 4px;
+				}
+
+				.card_btn {
+					padding-top: 8px;
+
+					.btn_detalle {
+						@include border(2px, $button-color);
+						padding: 4px;
+						border-radius: 6px;
+						font-size: 0.7rem;
+					}
 				}
 			}
 		}

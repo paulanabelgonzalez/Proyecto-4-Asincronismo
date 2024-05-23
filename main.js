@@ -27,11 +27,37 @@ introTerminada();
 
 $(".btn_intro").addEventListener("click", salirDeIntro);
 
+$(".hamburguesa").addEventListener("click", () => {
+	mostrar($(".contenedor_filtros"));
+	$(".hamburguesa").classList.toggle("hidden");
+	$(".cerrar_hamburguesa").classList.toggle("hidden");
+});
+
+$(".cerrar_hamburguesa").addEventListener("click", () => {
+	ocultar($(".contenedor_filtros"));
+	$(".cerrar_hamburguesa").classList.toggle("hidden");
+	$(".hamburguesa").classList.toggle("hidden");
+});
+
+const cambiarIconoHamburguesa = () => {
+	$(".hamburguesa").classList.remove("hidden");
+	$(".cerrar_hamburguesa").classList.add("hidden");
+};
+
+const deshabiltarBoton = (contenedor) => {
+	if (contenedor) {
+		$(".hamburguesa").setAttribute("disabled", "");
+	} else {
+		$(".hamburguesa").removeAttribute("disabled");
+	}
+};
+
 const urlBase = "https://662f72bd43b6a7dce30f86c9.mockapi.io/api/caballeros";
 
 const getCaballeros = (url) => {
 	fetch(url)
 		.then((res) => {
+			console.log(res);
 			if (res.ok) {
 				return res.json();
 			}
@@ -47,19 +73,27 @@ const getCaballeros = (url) => {
 };
 
 const renderCaballeros = (caballeros) => {
-	ocultar($(".modal_filtro"));
-	mostrar($(".spinner"));
+	mostrarYOcultar($(".spinner"), $(".modal_filtro"), $(".contenedor_filtros"));
+	deshabiltarBoton($(".spinner"));
 
 	setTimeout(() => {
 		mostrarYOcultar($(".cards"), $(".spinner"));
-		mostrar($(".crear_caballero"));
-		$(".cards").innerHTML = "";
+		// mostrar($(".crear_caballero"));
+		cambiarIconoHamburguesa();
+
+		if ($(".cards")) {
+			$(".hamburguesa").removeAttribute("disabled");
+		} else {
+			$(".hamburguesa").setAttribute("disabled");
+		}
+
+		$(".contenedor_cards").innerHTML = "";
 
 		caballeros.forEach((personaje) => {
 			const { nombre, caballero, armadura, descripcion, avatar, id } =
 				personaje;
 
-			$(".cards").innerHTML += `
+			$(".contenedor_cards").innerHTML += `
          <div class="card">
 			<div class="card_img">
 				<img src="${avatar}" alt="imagen de ${nombre}" />
@@ -102,10 +136,18 @@ const verCardDetalle = (caballero) => {
 };
 
 const renderDetalle = (card) => {
-	mostrarYOcultar($(".spinner"), $(".cards"), $(".crear_caballero"));
+	mostrarYOcultar(
+		$(".spinner"),
+		$(".cards"),
+		// $(".crear_caballero"),
+		$(".contenedor_filtros")
+	);
+	cambiarIconoHamburguesa();
+	deshabiltarBoton($(".spinner"));
 
 	setTimeout(() => {
 		mostrarYOcultar($(".detalle"), $(".spinner"));
+		deshabiltarBoton($(".detalle"));
 
 		const {
 			box,
@@ -286,7 +328,8 @@ const cerrarForm = (btn, btn_texto) => {
 };
 
 $(".crear_caballero").addEventListener("click", () => {
-	mostrarYOcultar($(".form_agregar"), $(".cards"), $(".crear_caballero"));
+	mostrarYOcultar($(".form_agregar"), $(".cards")); //$(".crear_caballero");
+	deshabiltarBoton($(".form_agregar"));
 });
 
 regresarContenedorAnterior(
@@ -372,9 +415,26 @@ $("#filtro_saga").addEventListener("change", (e) => {
 	ocultar($(".cards"));
 	getCaballeros(`${urlBase}/?${urlParams}`);
 });
+// falta arreglar
+// $("#filtro_nombre").addEventListener("keyup", (e) => {
+// 	nombre = e.target.value;
+// 	urlParams.set("nombre", e.target.value);
+// 	getCaballeros(`${urlBase}/?${urlParams}`);
+// });
 
-$("#filtro_nombre").addEventListener("keyup", (e) => {
-	nombre = e.target.value;
-	urlParams.set("nombre", e.target.value);
+$("#filtro_nombre__lupa").addEventListener("click", () => {
+	nombre = $("#filtro_nombre").value;
+	urlParams.set("nombre", nombre);
+	// mostrarYOcultar($(".volver_filtro"), $(".cards"), $(".crear_caballero"));
+	ocultar($(".cards"));
+	// ocultar($(".crear_caballero"));
 	getCaballeros(`${urlBase}/?${urlParams}`);
+	mostrar($(".volver_filtro"));
+});
+
+$("#filtro_btn__cerrar").addEventListener("click", () => {
+	$("#filtro_armadura").value = "";
+	$("#filtro_genero").value = "";
+	$("#filtro_saga").value = "";
+	getCaballeros(urlBase);
 });

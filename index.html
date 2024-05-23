@@ -31,11 +31,15 @@
 							/>
 						</div>
 						<div class="menu_hamburguesa">
-							<img
-								class="hamburguesa"
-								src="assets/menu.png"
-								alt="logo menu hamburguesa"
-							/>
+							<button class="hamburguesa" disabled>
+								<img src="assets/menu.png" alt="logo menu hamburguesa" />
+							</button>
+							<button class="cerrar_hamburguesa hamburguesa hidden">
+								<img
+									src="assets/cerrar.png"
+									alt="logo cerrar menu hamburguesa"
+								/>
+							</button>
 						</div>
 					</div>
 					<!-- <div class="buscador hidden">
@@ -66,13 +70,19 @@
 				<img class="spinner_img" src="assets/spinner.gif" alt="spinner" />
 				<p class="spinner_texto">Cargando...</p>
 			</div>
-			<button class="crear_caballero hidden">Agregar Caballero</button>
-			<div class="contenedor_filtros">
-				<input
-					type="text"
-					id="filtro_nombre"
-					placeholder="Nombre del personaje"
-				/>
+			<div class="contenedor_filtros hidden">
+				<div class="contenedor_filtro__nombre">
+					<input
+						type="text"
+						id="filtro_nombre"
+						placeholder="Nombre del personaje"
+					/>
+					<img
+						id="filtro_nombre__lupa"
+						src="assets/lupa.png"
+						alt="icono buscar"
+					/>
+				</div>
 				<div class="filtros_contenedor__select">
 					<select name="filtro_armadura" id="filtro_armadura">
 						<option value="">Armaduras...</option>
@@ -96,6 +106,8 @@
 					</select>
 				</div>
 			</div>
+			<!-- <button class="crear_caballero hidden">Agregar Caballero</button> -->
+			<button class="volver_filtro hidden"><< Atrás</button>
 			<div class="modal_filtro hidden">
 				<div class="contenedor_btn__filtro">
 					<button id="filtro_btn__cerrar">X</button>
@@ -104,7 +116,10 @@
 					Lo sentimos, no hay ningún caballero con esas descripciones.
 				</p>
 			</div>
-			<section class="cards hidden"></section>
+			<section class="cards hidden">
+				<button class="crear_caballero">Agregar Caballero</button>
+				<div class="contenedor_cards"></div>
+			</section>
 			<section class="detalle hidden"></section>
 			<div class="form_agregar contenedor_form hidden">
 				<form id="form_agregar__id">

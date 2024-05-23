@@ -22,17 +22,23 @@ input {
   font-size: 1rem;
 }
 
-input {
+select {
   border-radius: 14px;
   padding-left: 8px;
   font-family: "Kalam", cursive;
   font-size: 1rem;
+}
+@media (min-width: 970px) {
+  select {
+    width: 32%;
+  }
 }
 
 button {
   font-family: "Russo One", sans-serif;
   color: #ac3249;
   background-color: #ede9e2;
+  cursor: pointer;
 }
 
 header {
@@ -78,13 +84,20 @@ header .contenedor_nav .logo_nav .logos .img_logo {
     max-width: 280px;
   }
 }
-header .contenedor_nav .logo_nav .hamburguesa {
-  max-width: 45px;
+header .contenedor_nav .logo_nav .hamburguesa, header .contenedor_nav .logo_nav .cerrar_hamburguesa {
+  border: none;
+  background-color: #e5dbc7;
 }
 @media (min-width: 970px) {
-  header .contenedor_nav .logo_nav .hamburguesa {
+  header .contenedor_nav .logo_nav .hamburguesa, header .contenedor_nav .logo_nav .cerrar_hamburguesa {
     display: none;
   }
+}
+header .contenedor_nav .logo_nav .hamburguesa img, header .contenedor_nav .logo_nav .cerrar_hamburguesa img {
+  width: 50px;
+}
+header .contenedor_nav .logo_nav .cerrar_hamburguesa img {
+  width: 51px;
 }
 @media (min-width: 970px) {
   header .contenedor_nav .buscador {
@@ -160,6 +173,39 @@ main .crear_caballero {
   }
 }
 
+.contenedor_filtros {
+  padding: 10px;
+}
+@media (min-width: 970px) {
+  .contenedor_filtros {
+    width: 400px;
+    position: absolute;
+    top: 4%;
+    right: 12%;
+  }
+}
+.contenedor_filtros .contenedor_filtro__nombre {
+  position: relative;
+}
+.contenedor_filtros .contenedor_filtro__nombre #filtro_nombre {
+  width: 100%;
+}
+.contenedor_filtros .contenedor_filtro__nombre #filtro_nombre__lupa {
+  width: 20px;
+  position: absolute;
+  right: 5%;
+  top: 4px;
+}
+.contenedor_filtros .filtros_contenedor__select {
+  padding-top: 10px;
+}
+@media (min-width: 970px) {
+  .contenedor_filtros .filtros_contenedor__select {
+    display: flex;
+    justify-content: space-between;
+  }
+}
+
 .modal_filtro {
   border: 2px solid #ac3249;
   border-radius: 10px;
@@ -213,16 +259,22 @@ main .crear_caballero {
 .cards {
   display: flex;
   flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+.cards .contenedor_cards {
+  display: flex;
+  flex-direction: column;
   gap: 8px;
 }
 @media (min-width: 970px) {
-  .cards {
+  .cards .contenedor_cards {
     flex-direction: row;
     flex-wrap: wrap;
     gap: 15px;
   }
 }
-.cards .card {
+.cards .contenedor_cards .card {
   max-width: 600px;
   border: 1px solid black;
   padding: 10px;
@@ -231,38 +283,38 @@ main .crear_caballero {
   gap: 15px;
 }
 @media (min-width: 970px) {
-  .cards .card {
+  .cards .contenedor_cards .card {
     width: 458px;
   }
 }
-.cards .card img {
+.cards .contenedor_cards .card img {
   width: 170px;
   aspect-ratio: 2/3;
   object-fit: cover;
 }
-.cards .card .card_info {
+.cards .contenedor_cards .card .card_info {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   padding-bottom: 3px;
 }
-.cards .card .card_info .nombre {
+.cards .contenedor_cards .card .card_info .nombre {
   text-decoration: underline;
 }
-.cards .card .card_info .caballero {
+.cards .contenedor_cards .card .card_info .caballero {
   padding-top: 3px;
 }
-.cards .card .card_info .armadura {
+.cards .contenedor_cards .card .card_info .armadura {
   padding-top: 1px;
   font-weight: 600;
 }
-.cards .card .card_info .descripcion {
+.cards .contenedor_cards .card .card_info .descripcion {
   padding-top: 4px;
 }
-.cards .card .card_info .card_btn {
+.cards .contenedor_cards .card .card_info .card_btn {
   padding-top: 8px;
 }
-.cards .card .card_info .card_btn .btn_detalle {
+.cards .contenedor_cards .card .card_info .card_btn .btn_detalle {
   border: 2px solid #ac3249;
   padding: 4px;
   border-radius: 6px;

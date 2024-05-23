@@ -1,0 +1,34 @@
+.contenedor_filtros {
+	padding: 10px;
+
+	@media (min-width: 970px) {
+		width: 400px;
+		position: absolute;
+		top: 4%;
+		right: 12%;
+	}
+
+	.contenedor_filtro__nombre {
+		position: relative;
+
+		#filtro_nombre {
+			width: 100%;
+		}
+
+		#filtro_nombre__lupa {
+			width: 20px;
+			position: absolute;
+			right: 5%;
+			top: 4px;
+		}
+	}
+
+	.filtros_contenedor__select {
+		padding-top: 10px;
+
+		@include breakpoint {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}
