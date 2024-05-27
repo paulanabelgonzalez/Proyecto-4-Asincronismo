@@ -10,6 +10,8 @@ main {
 	gap: 10px;
 	overflow-y: auto;
 	justify-content: flex-start;
+	// background-image: url("../../assets/fondo.jpg");
+	// background-repeat: no-repeat;
 
 	@include breakpoint {
 		height: 73vh;

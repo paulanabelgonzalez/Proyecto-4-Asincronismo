@@ -44,11 +44,19 @@ const cambiarIconoHamburguesa = () => {
 	$(".cerrar_hamburguesa").classList.add("hidden");
 };
 
-const deshabiltarBoton = (contenedor) => {
+const deshabilitarBoton = (contenedor, btn) => {
 	if (contenedor) {
-		$(".hamburguesa").setAttribute("disabled", "");
+		btn.setAttribute("disabled", "");
 	} else {
-		$(".hamburguesa").removeAttribute("disabled");
+		btn.removeAttribute("disabled");
+	}
+};
+
+const habilitarBoton = (contenedor, btn) => {
+	if (contenedor) {
+		btn.removeAttribute("disabled");
+	} else {
+		btn.setAttribute("disabled");
 	}
 };
 
@@ -57,7 +65,6 @@ const urlBase = "https://662f72bd43b6a7dce30f86c9.mockapi.io/api/caballeros";
 const getCaballeros = (url) => {
 	fetch(url)
 		.then((res) => {
-			console.log(res);
 			if (res.ok) {
 				return res.json();
 			}
@@ -74,18 +81,24 @@ const getCaballeros = (url) => {
 
 const renderCaballeros = (caballeros) => {
 	mostrarYOcultar($(".spinner"), $(".modal_filtro"), $(".contenedor_filtros"));
-	deshabiltarBoton($(".spinner"));
+	deshabilitarBoton($(".spinner"), $(".hamburguesa"));
+	deshabilitarBoton($(".spinner"), $(".crear_caballero"));
 
 	setTimeout(() => {
 		mostrarYOcultar($(".cards"), $(".spinner"));
-		// mostrar($(".crear_caballero"));
 		cambiarIconoHamburguesa();
 
-		if ($(".cards")) {
-			$(".hamburguesa").removeAttribute("disabled");
-		} else {
-			$(".hamburguesa").setAttribute("disabled");
-		}
+		// para que se borre el nombre en el buscador
+		$("#filtro_nombre").value = "";
+
+		habilitarBoton($(".cards"), $(".hamburguesa"));
+		habilitarBoton($(".cards"), $(".crear_caballero"));
+
+		// if ($(".cards")) {
+		// 	$(".hamburguesa").removeAttribute("disabled");
+		// } else {
+		// 	$(".hamburguesa").setAttribute("disabled");
+		// }
 
 		$(".contenedor_cards").innerHTML = "";
 
@@ -143,11 +156,12 @@ const renderDetalle = (card) => {
 		$(".contenedor_filtros")
 	);
 	cambiarIconoHamburguesa();
-	deshabiltarBoton($(".spinner"));
+	deshabilitarBoton($(".spinner"), $(".hamburguesa"));
+	deshabilitarBoton($(".spinner"), $(".crear_caballero"));
 
 	setTimeout(() => {
 		mostrarYOcultar($(".detalle"), $(".spinner"));
-		deshabiltarBoton($(".detalle"));
+		deshabilitarBoton($(".detalle"), $(".hamburguesa"));
 
 		const {
 			box,
@@ -329,7 +343,7 @@ const cerrarForm = (btn, btn_texto) => {
 
 $(".crear_caballero").addEventListener("click", () => {
 	mostrarYOcultar($(".form_agregar"), $(".cards")); //$(".crear_caballero");
-	deshabiltarBoton($(".form_agregar"));
+	deshabilitarBoton($(".form_agregar"), $(".hamburguesa"));
 });
 
 regresarContenedorAnterior(
@@ -365,11 +379,8 @@ const agregarCaballero = () => {
 			$("#form_agregar__id").reset();
 			ocultar($(".form_agregar"));
 			getCaballeros(urlBase);
-			console.log(data);
 		})
 		.catch((err) => console.log(err));
-
-	console.log(caballeroNuevo);
 };
 
 $("#form_agregar__id").addEventListener("submit", (e) => {
@@ -415,6 +426,16 @@ $("#filtro_saga").addEventListener("change", (e) => {
 	ocultar($(".cards"));
 	getCaballeros(`${urlBase}/?${urlParams}`);
 });
+
+const deshabilitarBotonLupa = () => {
+	if ($("#filtro_nombre").value === "") {
+		$("#filtro_nombre__lupa").setAttribute("disabled", "");
+	} else {
+		$("#filtro_nombre__lupa").removeAttribute("disabled");
+	}
+};
+
+// deshabilitarBotonLupa();
 
 $("#filtro_nombre__lupa").addEventListener("click", () => {
 	nombre = $("#filtro_nombre").value;

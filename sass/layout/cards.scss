@@ -1,0 +1,93 @@
+.cards {
+	max-width: 1407px;
+	margin: auto;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 18px;
+
+	.crear_caballero {
+		@include btn;
+		padding: 10px;
+
+		@include breakpoint {
+			border: 3px solid;
+		}
+	}
+
+	.volver_filtro {
+		border: none;
+		font-size: 1rem;
+	}
+
+	.contenedor_cards {
+		display: flex;
+		flex-direction: column;
+		gap: 8px;
+
+		@include breakpoint {
+			flex-direction: row;
+			flex-wrap: wrap;
+			justify-content: center;
+			gap: 15px;
+		}
+
+		.card {
+			max-width: 600px;
+			@include border(1px, black);
+			padding: 10px;
+			border-radius: 10px;
+			display: flex;
+			gap: 15px;
+
+			@include breakpoint {
+				width: 458px;
+			}
+
+			img {
+				width: 170px;
+				aspect-ratio: 2 / 3;
+				object-fit: cover;
+			}
+
+			.card_info {
+				display: flex;
+				flex-direction: column;
+				justify-content: space-between;
+				padding-bottom: 3px;
+
+				.nombre {
+					text-decoration: underline;
+					font-family: $font-secundary;
+				}
+
+				.caballero {
+					padding-top: 3px;
+					font-family: "circular";
+				}
+
+				.armadura {
+					padding-top: 1px;
+					font-weight: 600;
+					font-family: "circular";
+				}
+
+				.descripcion {
+					padding-top: 4px;
+					font-family: $font-secundary;
+				}
+
+				.card_btn {
+					padding-top: 8px;
+
+					.btn_detalle {
+						@include border(2px, $button-color);
+						padding: 4px;
+						border-radius: 6px;
+						font-size: 0.7rem;
+					}
+				}
+			}
+		}
+	}
+}

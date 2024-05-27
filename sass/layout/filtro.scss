@@ -16,10 +16,19 @@
 		}
 
 		#filtro_nombre__lupa {
-			width: 20px;
+			// width: 20px;
+			// position: absolute;
+			// right: 5%;
+			// top: 4px;
+			background-color: transparent;
 			position: absolute;
-			right: 5%;
-			top: 4px;
+			right: 3%;
+			top: 1px;
+			border: none;
+
+			#lupa_img {
+				width: 20px;
+			}
 		}
 	}
 
