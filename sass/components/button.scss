@@ -2,4 +2,11 @@ button {
 	font-family: $font-alt;
 	color: $button-color;
 	background-color: $light-primary;
+	cursor: pointer;
+	padding: 3px 12px;
+	border-radius: 6px;
+
+	&:hover {
+		opacity: 0.6;
+	}
 }

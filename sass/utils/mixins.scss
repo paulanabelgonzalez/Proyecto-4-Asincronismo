@@ -13,6 +13,8 @@
 	padding-left: 8px;
 	font-family: $font-secundary;
 	font-size: 1rem;
+	border: transparent;
+	padding-block: 3px;
 }
 
 @mixin btn {

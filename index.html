@@ -31,28 +31,28 @@
 							/>
 						</div>
 						<div class="menu_hamburguesa">
-							<img
-								class="hamburguesa"
-								src="assets/menu.png"
-								alt="logo menu hamburguesa"
-							/>
+							<button class="hamburguesa" disabled>
+								<img src="assets/menu.png" alt="logo menu hamburguesa" />
+							</button>
+							<button class="cerrar_hamburguesa hamburguesa hidden">
+								<img
+									src="assets/cerrar.png"
+									alt="logo cerrar menu hamburguesa"
+								/>
+							</button>
 						</div>
 					</div>
-					<div class="buscador hidden">
-						<input
-							type="text"
-							id="bucador_personaje"
-							placeholder="Nombre del personaje"
-						/>
+					<button class="crear_caballero">Agregar Caballero</button>
+					<!-- <div class="buscador hidden">
 						<button id="modo">
 							<img src="assets/btn-dark.png" alt="imagen boton modo oscuro" />
 						</button>
-					</div>
+					</div> -->
 				</div>
 			</nav>
 		</header>
 		<main>
-			<section class="intro">
+			<div class="intro">
 				<video
 					class="video"
 					controls
@@ -61,14 +61,59 @@
 					src="assets/Los Caballeros Del Zodiaco - Opening Castellano Remasterizado 4K.mp4"
 				></video>
 				<button class="btn_intro">Saltar Intro >></button>
-			</section>
+			</div>
 			<div class="spinner hidden">
 				<img class="spinner_img" src="assets/spinner.gif" alt="spinner" />
 				<p class="spinner_texto">Cargando...</p>
 			</div>
-			<button class="crear_caballero hidden">Agregar Caballero</button>
-			<section class="cards hidden"></section>
-			<section class="detalle hidden"></section>
+			<div class="contenedor_filtros">
+				<div class="contenedor_filtro__nombre">
+					<input
+						type="text"
+						id="filtro_nombre"
+						placeholder="Nombre del personaje"
+						required
+					/>
+					<button id="filtro_nombre__lupa">
+						<img id="lupa_img" src="assets/lupa.png" alt="icono buscar" />
+					</button>
+				</div>
+				<div class="filtros_contenedor__select">
+					<select name="filtro_armadura" id="filtro_armadura">
+						<option value="">Armaduras...</option>
+						<option value="Bronce">Bronce</option>
+						<option value="Plata">Plata</option>
+						<option value="Oro">Oro</option>
+						<option value="Divina">Divina</option>
+					</select>
+					<select name="filtro_genero" id="filtro_genero">
+						<option value="">Género...</option>
+						<option value="Femenino">Femenino</option>
+						<option value="Masculino">Masculino</option>
+					</select>
+					<select name="filtro_saga" id="filtro_saga">
+						<option value="">Saga...</option>
+						<option value="Todas">Todas</option>
+						<option value="12 Casas">12 Casas</option>
+						<option value="Hades">Hades</option>
+						<option value="Asgard">Asgard</option>
+						<option value="Poseidón">Poseidón</option>
+					</select>
+				</div>
+			</div>
+			<div class="modal_filtro hidden">
+				<div class="contenedor_btn__filtro">
+					<button id="filtro_btn__cerrar">X</button>
+				</div>
+				<p class="filtro_modal__texto">
+					Lo sentimos, no hay ningún caballero con esas descripciones.
+				</p>
+			</div>
+			<div class="cards hidden">
+				<button class="volver_filtro hidden"><< Regresar</button>
+				<div class="contenedor_cards"></div>
+			</div>
+			<div class="detalle hidden"></div>
 			<div class="form_agregar contenedor_form hidden">
 				<form id="form_agregar__id">
 					<div class="form contenedor_regresar">

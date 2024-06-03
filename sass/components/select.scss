@@ -1,0 +1,7 @@
+select {
+	@include input;
+
+	@include breakpoint {
+		width: 32%;
+	}
+}

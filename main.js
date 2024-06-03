@@ -16,6 +16,20 @@ const salirDeIntro = () => {
 	getCaballeros(urlBase);
 };
 
+const ocultarFiltros = (seccion) => {
+	if (seccion) {
+		$(".contenedor_filtros").style.display = "none";
+	}
+};
+ocultarFiltros($(".intro"));
+
+const mostrarFiltros = (contenedor) => {
+	if (contenedor && window.innerWidth >= 970) {
+		$(".contenedor_filtros").style.display = "block";
+	}
+};
+
+// funcion para que al finalizar el video se vea la pagina automaticamente.
 const introTerminada = () => {
 	$(".video").onended = () => {
 		salirDeIntro();
@@ -26,29 +40,86 @@ introTerminada();
 
 $(".btn_intro").addEventListener("click", salirDeIntro);
 
+$(".hamburguesa").addEventListener("click", () => {
+	$(".contenedor_filtros").style.display = "block";
+	$(".hamburguesa").style.display = "none";
+	$(".cerrar_hamburguesa").style.display = "block";
+});
+
+$(".cerrar_hamburguesa").addEventListener("click", () => {
+	$(".contenedor_filtros").style.display = "none";
+	$(".cerrar_hamburguesa").style.display = "none";
+	$(".hamburguesa").style.display = "block";
+});
+
+const cambiarIconoHamburguesa = () => {
+	if (window.innerWidth <= 970) {
+		$(".hamburguesa").style.display = "block";
+		$(".cerrar_hamburguesa").style.display = "none";
+	}
+};
+
+const deshabilitarBoton = (contenedor, btn) => {
+	if (contenedor) {
+		btn.setAttribute("disabled", "");
+	} else {
+		btn.removeAttribute("disabled");
+	}
+};
+
+const habilitarBoton = (contenedor, btn) => {
+	if (contenedor) {
+		btn.removeAttribute("disabled");
+	} else {
+		btn.setAttribute("disabled");
+	}
+};
+
 const urlBase = "https://662f72bd43b6a7dce30f86c9.mockapi.io/api/caballeros";
 
 const getCaballeros = (url) => {
 	fetch(url)
-		.then((res) => res.json())
-		.then((data) => renderCaballeros(data))
+		.then((res) => {
+			if (res.ok) {
+				return res.json();
+			}
+		})
+		.then((data) => {
+			if (data) {
+				renderCaballeros(data);
+			} else {
+				mostrarYOcultar($(".modal_filtro"), $(".cards"));
+			}
+		})
 		.catch((err) => console.log(err));
 };
 
 const renderCaballeros = (caballeros) => {
-	mostrar($(".spinner"));
+	mostrarYOcultar($(".spinner"), $(".modal_filtro"));
+	deshabilitarBoton($(".spinner"), $(".hamburguesa"));
+	deshabilitarBoton($(".spinner"), $(".crear_caballero"));
+	ocultarFiltros($(".spinner"));
+	$("main").style.background = `#ede9e2`;
 
 	setTimeout(() => {
 		mostrarYOcultar($(".cards"), $(".spinner"));
-		mostrar($(".crear_caballero"));
-		$(".cards").innerHTML = "";
+		mostrarFiltros($(".cards"));
+		$("main").style.background = `url("/assets/fondo.jpg")`;
+
+		// para que se borre el nombre en el buscador
+		$("#filtro_nombre").value = "";
+
+		habilitarBoton($(".cards"), $(".hamburguesa"));
+		habilitarBoton($(".cards"), $(".crear_caballero"));
+
+		$(".contenedor_cards").innerHTML = "";
 
 		caballeros.forEach((personaje) => {
 			const { nombre, caballero, armadura, descripcion, avatar, id } =
 				personaje;
 
-			$(".cards").innerHTML += `
-        <div class="card">
+			$(".contenedor_cards").innerHTML += `
+         <div class="card">
 			<div class="card_img">
 				<img src="${avatar}" alt="imagen de ${nombre}" />
 			</div>
@@ -90,10 +161,16 @@ const verCardDetalle = (caballero) => {
 };
 
 const renderDetalle = (card) => {
-	mostrarYOcultar($(".spinner"), $(".cards"), $(".crear_caballero"));
+	mostrarYOcultar($(".spinner"), $(".cards"));
+	deshabilitarBoton($(".spinner"), $(".hamburguesa"));
+	deshabilitarBoton($(".spinner"), $(".crear_caballero"));
+	ocultarFiltros($(".spinner"));
+	cambiarIconoHamburguesa();
+	$("main").style.background = `#ede9e2`;
 
 	setTimeout(() => {
 		mostrarYOcultar($(".detalle"), $(".spinner"));
+		deshabilitarBoton($(".detalle"), $(".hamburguesa"));
 
 		const {
 			box,
@@ -111,7 +188,9 @@ const renderDetalle = (card) => {
 
 		$(".detalle").innerHTML = `
         <div class="card_detalle">
+        <div class="contenedor_detalle__regresar">
 			<button class="detalle_regresar">X</button>
+            </div>
 			<div class="detalle_img">
 				<img
 					class="box"
@@ -261,10 +340,13 @@ const renderDetalle = (card) => {
 
 const regresarContenedorAnterior = (btn, btn_texto, div) => {
 	btn.addEventListener("click", () => {
-		ocultar(div), getCaballeros(urlBase);
+		cambiarIconoHamburguesa();
+		ocultar(div);
+		getCaballeros(urlBase);
 	});
 	btn_texto.addEventListener("click", () => {
-		ocultar(div), getCaballeros(urlBase);
+		ocultar(div);
+		getCaballeros(urlBase);
 	});
 };
 
@@ -274,7 +356,9 @@ const cerrarForm = (btn, btn_texto) => {
 };
 
 $(".crear_caballero").addEventListener("click", () => {
-	mostrarYOcultar($(".form_agregar"), $(".cards"), $(".crear_caballero"));
+	ocultarFiltros($(".form_agregar"));
+	mostrarYOcultar($(".form_agregar"), $(".cards"));
+	deshabilitarBoton($(".form_agregar"), $(".hamburguesa"));
 });
 
 regresarContenedorAnterior(
@@ -310,11 +394,8 @@ const agregarCaballero = () => {
 			$("#form_agregar__id").reset();
 			ocultar($(".form_agregar"));
 			getCaballeros(urlBase);
-			console.log(data);
 		})
 		.catch((err) => console.log(err));
-
-	console.log(caballeroNuevo);
 };
 
 $("#form_agregar__id").addEventListener("submit", (e) => {
@@ -336,4 +417,48 @@ $("#modal_aceptar__eliminar").addEventListener("click", () => {
 			getCaballeros(urlBase);
 		})
 		.catch((err) => console.log(err));
+});
+
+const urlParams = new URLSearchParams(urlBase.search);
+
+$("#filtro_armadura").addEventListener("change", (e) => {
+	armadura = e.target.value;
+	urlParams.set("armadura", e.target.value);
+	ocultar($(".cards"));
+	getCaballeros(`${urlBase}/?${urlParams}`);
+});
+
+$("#filtro_genero").addEventListener("change", (e) => {
+	genero = e.target.value;
+	urlParams.set("genero", e.target.value);
+	ocultar($(".cards"));
+	getCaballeros(`${urlBase}/?${urlParams}`);
+});
+
+$("#filtro_saga").addEventListener("change", (e) => {
+	saga = e.target.value;
+	urlParams.set("saga", e.target.value);
+	ocultar($(".cards"));
+	getCaballeros(`${urlBase}/?${urlParams}`);
+});
+
+$("#filtro_nombre__lupa").addEventListener("click", () => {
+	$(".contenedor_filtros").style.display = "none";
+	cambiarIconoHamburguesa();
+	nombre = $("#filtro_nombre").value;
+	urlParams.set("nombre", nombre);
+	mostrarYOcultar($(".volver_filtro"), $(".cards"));
+	getCaballeros(`${urlBase}/?${urlParams}`);
+});
+
+$(".volver_filtro").addEventListener("click", () => {
+	mostrarYOcultar($(".crear_caballero"), $(".cards"), $(".volver_filtro"));
+	getCaballeros(urlBase);
+});
+
+$("#filtro_btn__cerrar").addEventListener("click", () => {
+	$("#filtro_armadura").value = "";
+	$("#filtro_genero").value = "";
+	$("#filtro_saga").value = "";
+	getCaballeros(urlBase);
 });

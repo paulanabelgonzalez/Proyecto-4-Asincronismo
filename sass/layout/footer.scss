@@ -12,6 +12,10 @@ footer {
 	img {
 		width: 8%;
 		max-width: 40px;
+
+		&:hover {
+			opacity: 0.6;
+		}
 	}
 
 	p {

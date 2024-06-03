@@ -1,0 +1,45 @@
+.contenedor_filtros {
+	padding: 10px;
+	display: none;
+
+	@include breakpoint {
+		width: 400px;
+		// position: absolute;
+		// top: 4%;
+		// right: 12%;
+		display: block;
+	}
+
+	.contenedor_filtro__nombre {
+		position: relative;
+
+		#filtro_nombre {
+			width: 100%;
+		}
+
+		#filtro_nombre__lupa {
+			// width: 20px;
+			// position: absolute;
+			// right: 5%;
+			// top: 4px;
+			background-color: transparent;
+			position: absolute;
+			right: 3%;
+			top: 1px;
+			border: none;
+
+			#lupa_img {
+				width: 20px;
+			}
+		}
+	}
+
+	.filtros_contenedor__select {
+		padding-top: 10px;
+
+		@include breakpoint {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+}
