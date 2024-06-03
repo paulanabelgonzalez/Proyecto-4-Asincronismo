@@ -106,7 +106,6 @@ const renderCaballeros = (caballeros) => {
 		mostrarFiltros($(".cards"));
 		$("main").style.background = `url("/assets/fondo.jpg")`;
 
-		// para que se borre el nombre en el buscador
 		$("#filtro_nombre").value = "";
 
 		habilitarBoton($(".cards"), $(".hamburguesa"));
@@ -119,7 +118,7 @@ const renderCaballeros = (caballeros) => {
 				personaje;
 
 			$(".contenedor_cards").innerHTML += `
-         <div class="card">
+        <div class="card">
 			<div class="card_img">
 				<img src="${avatar}" alt="imagen de ${nombre}" />
 			</div>
@@ -420,13 +419,23 @@ $("#modal_aceptar__eliminar").addEventListener("click", () => {
 });
 
 const urlParams = new URLSearchParams(urlBase.search);
+const filtros = (select, nombre, filtro) => {
+	select.addEventListener("change", (e) => {
+		nombre = e.target.value;
+		urlParams.set(filtro, e.target.value);
+		ocultar($(".cards"));
+		getCaballeros(`${urlBase}/?${urlParams}`);
+	});
+};
 
-$("#filtro_armadura").addEventListener("change", (e) => {
-	armadura = e.target.value;
-	urlParams.set("armadura", e.target.value);
-	ocultar($(".cards"));
-	getCaballeros(`${urlBase}/?${urlParams}`);
-});
+filtros($("#filtro_armadura"), "armadura", "armadura");
+
+// $("#filtro_armadura").addEventListener("change", (e) => {
+// 	armadura = e.target.value;
+// 	urlParams.set("armadura", e.target.value);
+// 	ocultar($(".cards"));
+// 	getCaballeros(`${urlBase}/?${urlParams}`);
+// });
 
 $("#filtro_genero").addEventListener("change", (e) => {
 	genero = e.target.value;
@@ -442,13 +451,30 @@ $("#filtro_saga").addEventListener("change", (e) => {
 	getCaballeros(`${urlBase}/?${urlParams}`);
 });
 
-$("#filtro_nombre__lupa").addEventListener("click", () => {
-	$(".contenedor_filtros").style.display = "none";
-	cambiarIconoHamburguesa();
+const habilitarBuscador = () => {
 	nombre = $("#filtro_nombre").value;
-	urlParams.set("nombre", nombre);
-	mostrarYOcultar($(".volver_filtro"), $(".cards"));
-	getCaballeros(`${urlBase}/?${urlParams}`);
+	validar = 0;
+
+	if (nombre === "") {
+		validar++;
+	}
+	if (validar === 0) {
+		$("#filtro_nombre__lupa").disabled = false;
+	} else {
+		$("#filtro_nombre__lupa").disabled = true;
+	}
+};
+
+$("#filtro_nombre").addEventListener("keyup", habilitarBuscador);
+
+$("#filtro_nombre__lupa").addEventListener("click", () => {
+	if ($("#filtro_nombre").value !== "") {
+		cambiarIconoHamburguesa();
+		nombre = $("#filtro_nombre").value;
+		urlParams.set("nombre", nombre);
+		mostrarYOcultar($(".volver_filtro"), $(".cards"));
+		getCaballeros(`${urlBase}/?${urlParams}`);
+	}
 });
 
 $(".volver_filtro").addEventListener("click", () => {

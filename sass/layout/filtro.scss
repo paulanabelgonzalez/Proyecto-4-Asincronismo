@@ -41,5 +41,17 @@
 			display: flex;
 			justify-content: space-between;
 		}
+
+		#filtro_armadura {
+			width: 32%;
+		}
+
+		#filtro_genero {
+			@extend #filtro_armadura;
+		}
+
+		#filtro_saga {
+			@extend #filtro_armadura;
+		}
 	}
 }

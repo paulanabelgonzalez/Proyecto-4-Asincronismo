@@ -32,11 +32,7 @@ select {
   font-size: 1rem;
   border: transparent;
   padding-block: 3px;
-}
-@media (min-width: 970px) {
-  select {
-    width: 32%;
-  }
+  color: #757779;
 }
 
 button {
@@ -149,6 +145,7 @@ header .contenedor_nav .logo_nav .crear_caballero {
 }
 
 main {
+  background-color: #ede9e2;
   height: 63vh;
   padding-block: 12px;
   padding-inline: 5px;
@@ -231,7 +228,9 @@ main {
     justify-content: space-between;
   }
 }
-
+.contenedor_filtros .filtros_contenedor__select #filtro_armadura, .contenedor_filtros .filtros_contenedor__select #filtro_saga, .contenedor_filtros .filtros_contenedor__select #filtro_genero {
+  width: 32%;
+}
 .modal_filtro {
   border: 2px solid #ac3249;
   border-radius: 10px;
