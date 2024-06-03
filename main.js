@@ -16,6 +16,19 @@ const salirDeIntro = () => {
 	getCaballeros(urlBase);
 };
 
+const ocultarFiltros = (seccion) => {
+	if (seccion) {
+		$(".contenedor_filtros").style.display = "none";
+	}
+};
+ocultarFiltros($(".intro"));
+
+const mostrarFiltros = (contenedor) => {
+	if (contenedor && window.innerWidth >= 970) {
+		$(".contenedor_filtros").style.display = "block";
+	}
+};
+
 // funcion para que al finalizar el video se vea la pagina automaticamente.
 const introTerminada = () => {
 	$(".video").onended = () => {
@@ -28,20 +41,22 @@ introTerminada();
 $(".btn_intro").addEventListener("click", salirDeIntro);
 
 $(".hamburguesa").addEventListener("click", () => {
-	mostrar($(".contenedor_filtros"));
-	$(".hamburguesa").classList.toggle("hidden");
-	$(".cerrar_hamburguesa").classList.toggle("hidden");
+	$(".contenedor_filtros").style.display = "block";
+	$(".hamburguesa").style.display = "none";
+	$(".cerrar_hamburguesa").style.display = "block";
 });
 
 $(".cerrar_hamburguesa").addEventListener("click", () => {
-	ocultar($(".contenedor_filtros"));
-	$(".cerrar_hamburguesa").classList.toggle("hidden");
-	$(".hamburguesa").classList.toggle("hidden");
+	$(".contenedor_filtros").style.display = "none";
+	$(".cerrar_hamburguesa").style.display = "none";
+	$(".hamburguesa").style.display = "block";
 });
 
 const cambiarIconoHamburguesa = () => {
-	$(".hamburguesa").classList.remove("hidden");
-	$(".cerrar_hamburguesa").classList.add("hidden");
+	if (window.innerWidth <= 970) {
+		$(".hamburguesa").style.display = "block";
+		$(".cerrar_hamburguesa").style.display = "none";
+	}
 };
 
 const deshabilitarBoton = (contenedor, btn) => {
@@ -80,25 +95,22 @@ const getCaballeros = (url) => {
 };
 
 const renderCaballeros = (caballeros) => {
-	mostrarYOcultar($(".spinner"), $(".modal_filtro"), $(".contenedor_filtros"));
+	mostrarYOcultar($(".spinner"), $(".modal_filtro"));
 	deshabilitarBoton($(".spinner"), $(".hamburguesa"));
 	deshabilitarBoton($(".spinner"), $(".crear_caballero"));
+	ocultarFiltros($(".spinner"));
+	$("main").style.background = `#ede9e2`;
 
 	setTimeout(() => {
 		mostrarYOcultar($(".cards"), $(".spinner"));
-		cambiarIconoHamburguesa();
+		mostrarFiltros($(".cards"));
+		$("main").style.background = `url("/assets/fondo.jpg")`;
 
 		// para que se borre el nombre en el buscador
 		$("#filtro_nombre").value = "";
 
 		habilitarBoton($(".cards"), $(".hamburguesa"));
 		habilitarBoton($(".cards"), $(".crear_caballero"));
-
-		// if ($(".cards")) {
-		// 	$(".hamburguesa").removeAttribute("disabled");
-		// } else {
-		// 	$(".hamburguesa").setAttribute("disabled");
-		// }
 
 		$(".contenedor_cards").innerHTML = "";
 
@@ -149,15 +161,12 @@ const verCardDetalle = (caballero) => {
 };
 
 const renderDetalle = (card) => {
-	mostrarYOcultar(
-		$(".spinner"),
-		$(".cards"),
-		// $(".crear_caballero"),
-		$(".contenedor_filtros")
-	);
-	cambiarIconoHamburguesa();
+	mostrarYOcultar($(".spinner"), $(".cards"));
 	deshabilitarBoton($(".spinner"), $(".hamburguesa"));
 	deshabilitarBoton($(".spinner"), $(".crear_caballero"));
+	ocultarFiltros($(".spinner"));
+	cambiarIconoHamburguesa();
+	$("main").style.background = `#ede9e2`;
 
 	setTimeout(() => {
 		mostrarYOcultar($(".detalle"), $(".spinner"));
@@ -179,7 +188,9 @@ const renderDetalle = (card) => {
 
 		$(".detalle").innerHTML = `
         <div class="card_detalle">
+        <div class="contenedor_detalle__regresar">
 			<button class="detalle_regresar">X</button>
+            </div>
 			<div class="detalle_img">
 				<img
 					class="box"
@@ -329,10 +340,13 @@ const renderDetalle = (card) => {
 
 const regresarContenedorAnterior = (btn, btn_texto, div) => {
 	btn.addEventListener("click", () => {
-		ocultar(div), getCaballeros(urlBase);
+		cambiarIconoHamburguesa();
+		ocultar(div);
+		getCaballeros(urlBase);
 	});
 	btn_texto.addEventListener("click", () => {
-		ocultar(div), getCaballeros(urlBase);
+		ocultar(div);
+		getCaballeros(urlBase);
 	});
 };
 
@@ -342,7 +356,8 @@ const cerrarForm = (btn, btn_texto) => {
 };
 
 $(".crear_caballero").addEventListener("click", () => {
-	mostrarYOcultar($(".form_agregar"), $(".cards")); //$(".crear_caballero");
+	ocultarFiltros($(".form_agregar"));
+	mostrarYOcultar($(".form_agregar"), $(".cards"));
 	deshabilitarBoton($(".form_agregar"), $(".hamburguesa"));
 });
 
@@ -427,21 +442,12 @@ $("#filtro_saga").addEventListener("change", (e) => {
 	getCaballeros(`${urlBase}/?${urlParams}`);
 });
 
-const deshabilitarBotonLupa = () => {
-	if ($("#filtro_nombre").value === "") {
-		$("#filtro_nombre__lupa").setAttribute("disabled", "");
-	} else {
-		$("#filtro_nombre__lupa").removeAttribute("disabled");
-	}
-};
-
-// deshabilitarBotonLupa();
-
 $("#filtro_nombre__lupa").addEventListener("click", () => {
+	$(".contenedor_filtros").style.display = "none";
+	cambiarIconoHamburguesa();
 	nombre = $("#filtro_nombre").value;
 	urlParams.set("nombre", nombre);
-	mostrarYOcultar($(".volver_filtro"), $(".cards"), $(".crear_caballero"));
-	cambiarIconoHamburguesa();
+	mostrarYOcultar($(".volver_filtro"), $(".cards"));
 	getCaballeros(`${urlBase}/?${urlParams}`);
 });
 

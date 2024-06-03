@@ -1,5 +1,5 @@
 main {
-	background-color: $light-primary;
+	// background-color: $light-primary;
 	height: 63vh;
 	padding-block: 12px;
 	padding-inline: 5px;
@@ -10,7 +10,7 @@ main {
 	gap: 10px;
 	overflow-y: auto;
 	justify-content: flex-start;
-	// background-image: url("../../assets/fondo.jpg");
+	// background: url("/assets/fondo.jpg");
 	// background-repeat: no-repeat;
 
 	@include breakpoint {

@@ -8,6 +8,7 @@
 label {
   font-size: 1rem;
   font-family: cursive;
+  color: #ede9e2;
 }
 @media (min-width: 970px) {
   label {
@@ -20,6 +21,8 @@ input {
   padding-left: 8px;
   font-family: "Kalam", cursive;
   font-size: 1rem;
+  border: transparent;
+  padding-block: 3px;
 }
 
 select {
@@ -27,6 +30,8 @@ select {
   padding-left: 8px;
   font-family: "Kalam", cursive;
   font-size: 1rem;
+  border: transparent;
+  padding-block: 3px;
 }
 @media (min-width: 970px) {
   select {
@@ -76,33 +81,63 @@ header .contenedor_nav {
   width: 100%;
 }
 header .contenedor_nav .logo_nav, header .contenedor_nav .logo_nav .logos {
-  width: 100%;
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   align-items: center;
 }
+header .contenedor_nav .logo_nav .logos {
+  gap: 90px;
+}
+@media (min-width: 970px) {
+  header .contenedor_nav .logo_nav .logos {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
 header .contenedor_nav .logo_nav .logos .img_logo {
-  max-width: 250px;
+  max-width: 166px;
 }
 @media (min-width: 970px) {
   header .contenedor_nav .logo_nav .logos .img_logo {
     max-width: 280px;
   }
 }
-header .contenedor_nav .logo_nav .hamburguesa, header .contenedor_nav .logo_nav .cerrar_hamburguesa {
+header .contenedor_nav .logo_nav .logos .hamburguesa, header .contenedor_nav .logo_nav .logos .cerrar_hamburguesa {
   border: none;
   background-color: #e5dbc7;
 }
 @media (min-width: 970px) {
-  header .contenedor_nav .logo_nav .hamburguesa, header .contenedor_nav .logo_nav .cerrar_hamburguesa {
+  header .contenedor_nav .logo_nav .logos .hamburguesa, header .contenedor_nav .logo_nav .logos .cerrar_hamburguesa {
     display: none;
   }
 }
-header .contenedor_nav .logo_nav .hamburguesa img, header .contenedor_nav .logo_nav .cerrar_hamburguesa img {
-  width: 50px;
+header .contenedor_nav .logo_nav .logos .hamburguesa img, header .contenedor_nav .logo_nav .logos .cerrar_hamburguesa img {
+  width: 40px;
 }
-header .contenedor_nav .logo_nav .cerrar_hamburguesa img {
-  width: 51px;
+header .contenedor_nav .logo_nav .logos .cerrar_hamburguesa img {
+  width: 41px;
+}
+header .contenedor_nav .logo_nav .crear_caballero {
+  padding-inline: 12px;
+  padding-block: 3px;
+  border: 2px solid #ac3249;
+  border-radius: 6px;
+  padding: 8px 12px;
+  margin-bottom: 10px;
+  border: 2px solid;
+  font-size: 1rem;
+}
+@media (min-width: 970px) {
+  header .contenedor_nav .logo_nav .crear_caballero {
+    font-size: 1rem;
+  }
+}
+@media (min-width: 970px) {
+  header .contenedor_nav .logo_nav .crear_caballero {
+    border: 3px solid;
+  }
 }
 @media (min-width: 970px) {
   header .contenedor_nav .buscador {
@@ -114,7 +149,6 @@ header .contenedor_nav .logo_nav .cerrar_hamburguesa img {
 }
 
 main {
-  background-color: #ede9e2;
   height: 63vh;
   padding-block: 12px;
   padding-inline: 5px;
@@ -146,6 +180,7 @@ main {
 @media (min-width: 970px) {
   .intro {
     max-width: 705px;
+    gap: 18px;
   }
 }
 .intro video {
@@ -163,13 +198,12 @@ main {
 
 .contenedor_filtros {
   padding: 10px;
+  display: none;
 }
 @media (min-width: 970px) {
   .contenedor_filtros {
     width: 400px;
-    position: absolute;
-    top: 4%;
-    right: 12%;
+    display: block;
   }
 }
 .contenedor_filtros .contenedor_filtro__nombre {
@@ -252,37 +286,40 @@ main {
   width: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 12px;
 }
 @media (min-width: 970px) {
   .detalle {
-    justify-content: flex-start;
+    margin-block: auto;
   }
 }
 .detalle .card_detalle {
   padding: 10px;
-  border: 2px solid #ac3249;
   border-radius: 10px;
+  background: url(/assets/pxfuel.jpg);
+  background-position: bottom;
 }
 @media (min-width: 970px) {
   .detalle .card_detalle {
     max-width: 1160px;
     padding: 52px;
     display: flex;
-    justify-content: space-around;
     gap: 35px;
+    background-position: right;
   }
 }
-.detalle .card_detalle .detalle_regresar {
-  width: 100%;
+.detalle .card_detalle .contenedor_detalle__regresar {
   text-align: end;
+  padding-bottom: 10px;
+}
+.detalle .card_detalle .contenedor_detalle__regresar .detalle_regresar {
   border: none;
-  font-size: 1rem;
+  background: transparent;
+  font-size: 1.2rem;
 }
 @media (min-width: 970px) {
-  .detalle .card_detalle .detalle_regresar {
+  .detalle .card_detalle .contenedor_detalle__regresar .detalle_regresar {
     display: none;
   }
 }
@@ -364,12 +401,14 @@ main {
 }
 .detalle .card_detalle .detalle_contenedor .detalle_btn__regresar .regresar {
   border: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  background: transparent;
 }
 .detalle .card_detalle .detalle_contenedor .detalle_nombre {
   text-align: center;
   text-decoration: underline;
   font-family: "Kalam", cursive;
+  color: #ac3249;
 }
 @media (min-width: 970px) {
   .detalle .card_detalle .detalle_contenedor .detalle_nombre {
@@ -379,6 +418,7 @@ main {
 .detalle .card_detalle .detalle_contenedor .detalle_texto {
   padding-top: 14px;
   font-family: "Kalam", cursive;
+  color: aliceblue;
 }
 @media (min-width: 970px) {
   .detalle .card_detalle .detalle_contenedor .detalle_texto {
@@ -400,6 +440,7 @@ main {
   padding-block: 3px;
   border: 2px solid #ac3249;
   border-radius: 6px;
+  background: transparent;
 }
 @media (min-width: 970px) {
   .detalle .card_detalle .detalle_contenedor .detalle_btns .detalle_btn__editar, .detalle .card_detalle .detalle_contenedor .detalle_btns .detalle_btn__eliminar {
@@ -451,6 +492,8 @@ main {
   padding-left: 8px;
   font-family: "Kalam", cursive;
   font-size: 1rem;
+  border: transparent;
+  padding-block: 3px;
 }
 .contenedor_form form .formulario_btn {
   text-align: center;
@@ -476,23 +519,6 @@ main {
   align-items: center;
   gap: 18px;
 }
-.cards .crear_caballero {
-  padding-inline: 12px;
-  padding-block: 3px;
-  border: 2px solid #ac3249;
-  border-radius: 6px;
-  padding: 10px;
-}
-@media (min-width: 970px) {
-  .cards .crear_caballero {
-    font-size: 1rem;
-  }
-}
-@media (min-width: 970px) {
-  .cards .crear_caballero {
-    border: 3px solid;
-  }
-}
 .cards .volver_filtro {
   border: none;
   font-size: 1rem;
@@ -512,11 +538,11 @@ main {
 }
 .cards .contenedor_cards .card {
   max-width: 600px;
-  border: 1px solid black;
   padding: 10px;
   border-radius: 10px;
   display: flex;
   gap: 15px;
+  background: #ede9e2;
 }
 @media (min-width: 970px) {
   .cards .contenedor_cards .card {
@@ -537,6 +563,7 @@ main {
 .cards .contenedor_cards .card .card_info .nombre {
   text-decoration: underline;
   font-family: "Kalam", cursive;
+  color: #ac3249;
 }
 .cards .contenedor_cards .card .card_info .caballero {
   padding-top: 3px;

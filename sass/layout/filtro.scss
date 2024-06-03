@@ -1,11 +1,13 @@
 .contenedor_filtros {
 	padding: 10px;
+	display: none;
 
 	@include breakpoint {
 		width: 400px;
-		position: absolute;
-		top: 4%;
-		right: 12%;
+		// position: absolute;
+		// top: 4%;
+		// right: 12%;
+		display: block;
 	}
 
 	.contenedor_filtro__nombre {

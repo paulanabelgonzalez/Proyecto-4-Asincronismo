@@ -30,7 +30,6 @@
 								alt="logo caballeros del zoodiaco"
 							/>
 						</div>
-						<button class="crear_caballero">Agregar Caballero</button>
 						<div class="menu_hamburguesa">
 							<button class="hamburguesa" disabled>
 								<img src="assets/menu.png" alt="logo menu hamburguesa" />
@@ -43,6 +42,7 @@
 							</button>
 						</div>
 					</div>
+					<button class="crear_caballero">Agregar Caballero</button>
 					<!-- <div class="buscador hidden">
 						<button id="modo">
 							<img src="assets/btn-dark.png" alt="imagen boton modo oscuro" />
@@ -66,12 +66,13 @@
 				<img class="spinner_img" src="assets/spinner.gif" alt="spinner" />
 				<p class="spinner_texto">Cargando...</p>
 			</div>
-			<div class="contenedor_filtros hidden">
+			<div class="contenedor_filtros">
 				<div class="contenedor_filtro__nombre">
 					<input
 						type="text"
 						id="filtro_nombre"
 						placeholder="Nombre del personaje"
+						required
 					/>
 					<button id="filtro_nombre__lupa">
 						<img id="lupa_img" src="assets/lupa.png" alt="icono buscar" />
