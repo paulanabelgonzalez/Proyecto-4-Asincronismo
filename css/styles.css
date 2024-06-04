@@ -50,8 +50,6 @@ button:hover {
 header {
   background-color: #e5dbc7;
   height: 22vh;
-  display: flex;
-  align-items: center;
 }
 @media (min-width: 970px) {
   header {
@@ -73,9 +71,6 @@ header .logo_intro .logo_intro__img .intro_img {
     max-width: 280px;
   }
 }
-header .contenedor_nav {
-  width: 100%;
-}
 header .contenedor_nav .logo_nav, header .contenedor_nav .logo_nav .logos {
   display: flex;
   flex-wrap: wrap;
@@ -84,13 +79,6 @@ header .contenedor_nav .logo_nav, header .contenedor_nav .logo_nav .logos {
 }
 header .contenedor_nav .logo_nav .logos {
   gap: 90px;
-}
-@media (min-width: 970px) {
-  header .contenedor_nav .logo_nav .logos {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-  }
 }
 header .contenedor_nav .logo_nav .logos .img_logo {
   max-width: 166px;
@@ -116,31 +104,15 @@ header .contenedor_nav .logo_nav .logos .cerrar_hamburguesa img {
   width: 41px;
 }
 header .contenedor_nav .logo_nav .crear_caballero {
-  padding-inline: 12px;
-  padding-block: 3px;
   border: 2px solid #ac3249;
   border-radius: 6px;
   padding: 8px 12px;
   margin-bottom: 10px;
-  border: 2px solid;
-  font-size: 1rem;
+  font-size: 1.1rem;
 }
 @media (min-width: 970px) {
   header .contenedor_nav .logo_nav .crear_caballero {
-    font-size: 1rem;
-  }
-}
-@media (min-width: 970px) {
-  header .contenedor_nav .logo_nav .crear_caballero {
-    border: 3px solid;
-  }
-}
-@media (min-width: 970px) {
-  header .contenedor_nav .buscador {
-    width: 34%;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    border: 3px solid #ac3249;
   }
 }
 
@@ -151,7 +123,6 @@ main {
   padding-inline: 5px;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   gap: 10px;
   overflow-y: auto;
@@ -643,6 +614,8 @@ main {
   padding-block: 3px;
   border: 2px solid #ac3249;
   border-radius: 6px;
+  background-color: #ac3249;
+  color: #ede9e2;
 }
 @media (min-width: 970px) {
   .contenedor_modal .ventana_modal #modal_aceptar__eliminar {

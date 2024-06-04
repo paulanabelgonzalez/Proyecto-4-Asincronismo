@@ -28,20 +28,6 @@
 			}
 		}
 
-		// #modal_btn__cerrar {
-		// 	@include breakpoint {
-		// 		display: none;
-		// 	}
-		// }
-
-		// #modal_texto__cerrar {
-		// 	@include breakpoint {
-		// 		display: inline-block;
-		// 		border: none;
-		// 		font-size: 1rem;
-		// 	}
-		// }
-
 		.modal_flex {
 			display: flex;
 			justify-content: center;
@@ -63,6 +49,8 @@
 
 		#modal_aceptar__eliminar {
 			@include btn;
+			background-color: $light-alt;
+			color: $light-primary;
 		}
 	}
 }

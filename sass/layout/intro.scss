@@ -8,7 +8,6 @@
 	gap: 2px;
 
 	@include breakpoint {
-		// max-width: 680px;
 		max-width: 705px;
 		gap: 18px;
 	}
@@ -20,9 +19,6 @@
 	.btn_intro {
 		padding: 9px;
 		border: none;
-		// font-family: $font-alt;
-		// color: #ac3249;
-		// background-color: $light-primary;
 
 		@include breakpoint {
 			font-size: 1rem;
