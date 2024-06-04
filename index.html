@@ -72,9 +72,8 @@
 						type="text"
 						id="filtro_nombre"
 						placeholder="Nombre del personaje"
-						required
 					/>
-					<button id="filtro_nombre__lupa">
+					<button id="filtro_nombre__lupa" disabled>
 						<img id="lupa_img" src="assets/lupa.png" alt="icono buscar" />
 					</button>
 				</div>
@@ -140,14 +139,20 @@
 					</div>
 					<div class="formulario">
 						<label for="form_agregar__armadura">Armadura</label>
-						<input
+						<select name="filtro_armadura" id="filtro_agregar__armadura">
+							<option value="Bronce">Bronce</option>
+							<option value="Plata">Plata</option>
+							<option value="Oro">Oro</option>
+							<option value="Divina">Divina</option>
+						</select>
+						<!-- <input
 							type="text"
 							name="form_agregar__armadura"
 							id="form_agregar__armadura"
 							placeholder="Qué tipo de armadura es: bronce, oro, etc.  "
 							required
 							minlength="3"
-						/>
+						/> -->
 					</div>
 					<div class="formulario">
 						<label for="form_agregar__caballero">Caballero</label>
@@ -161,14 +166,18 @@
 						/>
 					</div>
 					<div class="formulario">
-						<label for="form_agregar__genero">Género</label>
-						<input
+						<label for="form_agregar__genero">Género</label
+						><select name="filtro_genero" id="form_agregar__genero">
+							<option value="Femenino">Femenino</option>
+							<option value="Masculino">Masculino</option>
+						</select>
+						<!-- <input
 							type="text"
 							name="form_agregar__genero"
 							id="form_agregar__genero"
 							placeholder="Género"
 							required
-						/>
+						/> -->
 					</div>
 					<div class="formulario">
 						<label for="form_agregar__avatar">Avatar</label>
@@ -234,13 +243,20 @@
 					</div>
 					<div class="formulario">
 						<label for="form_agregar__saga">Saga</label>
-						<input
+						<select name="filtro_saga" id="filtro_agregar__saga">
+							<option value="Todas">Todas</option>
+							<option value="12 Casas">12 Casas</option>
+							<option value="Hades">Hades</option>
+							<option value="Asgard">Asgard</option>
+							<option value="Poseidón">Poseidón</option>
+						</select>
+						<!-- <input
 							type="text"
 							name="form_agregar__saga"
 							id="form_agregar__saga"
 							placeholder="Saga perteneciente"
 							required
-						/>
+						/> -->
 					</div>
 					<div class="formulario_btn">
 						<button type="submit" class="agregar_btn__submit form_btn_submit">

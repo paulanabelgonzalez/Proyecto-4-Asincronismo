@@ -9,12 +9,12 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
-		@include border(2px, $button-color);
+		@include border(2px, $light-alt);
 		border-radius: 10px;
 		padding-block: 15px;
 
 		@include breakpoint {
-			@include border(3px, $button-color);
+			@include border(3px, $light-alt);
 		}
 
 		.modal_contenedor__btn {
@@ -27,20 +27,6 @@
 				font-size: 1rem;
 			}
 		}
-
-		// #modal_btn__cerrar {
-		// 	@include breakpoint {
-		// 		display: none;
-		// 	}
-		// }
-
-		// #modal_texto__cerrar {
-		// 	@include breakpoint {
-		// 		display: inline-block;
-		// 		border: none;
-		// 		font-size: 1rem;
-		// 	}
-		// }
 
 		.modal_flex {
 			display: flex;
@@ -63,6 +49,8 @@
 
 		#modal_aceptar__eliminar {
 			@include btn;
+			background-color: $light-alt;
+			color: $light-primary;
 		}
 	}
 }

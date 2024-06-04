@@ -1,7 +1,4 @@
 select {
 	@include input;
-
-	@include breakpoint {
-		width: 32%;
-	}
+	color: #757779;
 }

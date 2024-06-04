@@ -4,9 +4,6 @@
 
 	@include breakpoint {
 		width: 400px;
-		// position: absolute;
-		// top: 4%;
-		// right: 12%;
 		display: block;
 	}
 
@@ -18,10 +15,6 @@
 		}
 
 		#filtro_nombre__lupa {
-			// width: 20px;
-			// position: absolute;
-			// right: 5%;
-			// top: 4px;
 			background-color: transparent;
 			position: absolute;
 			right: 3%;
@@ -40,6 +33,18 @@
 		@include breakpoint {
 			display: flex;
 			justify-content: space-between;
+		}
+
+		#filtro_armadura {
+			width: 32%;
+		}
+
+		#filtro_genero {
+			@extend #filtro_armadura;
+		}
+
+		#filtro_saga {
+			@extend #filtro_armadura;
 		}
 	}
 }
