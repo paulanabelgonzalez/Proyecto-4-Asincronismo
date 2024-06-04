@@ -98,7 +98,7 @@ const renderCaballeros = (caballeros) => {
 	setTimeout(() => {
 		mostrarYOcultar($(".cards"), $(".spinner"));
 		mostrarFiltros($(".cards"));
-		$("main").style.background = `url("/assets/fondo.jpg")`;
+		$("main").style.background = `url("./assets/fondo.jpg")`;
 
 		$("#filtro_nombre").value = "";
 
