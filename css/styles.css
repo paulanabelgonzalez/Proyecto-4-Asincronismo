@@ -524,7 +524,8 @@ main {
 }
 .cards .volver_filtro {
   border: none;
-  font-size: 1rem;
+  font-size: 1.1rem;
+  background-color: transparent;
 }
 .cards .contenedor_cards {
   display: flex;
