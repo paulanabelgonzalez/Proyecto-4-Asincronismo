@@ -1,7 +1,7 @@
 # CRUD
 
 Este es mi primer proyecto CRUD (Create, Read, Update, Delete), en donde creé la Api (MockApi.io) de los Caballeros del Zoodiaco.
-Está hecho con HTML y Sass y es totalmente responsive.
+Está hecho con HTML, Sass, javaScrip y es totalmente responsive.
 
 Este proyecto cuenta con una Intro la cual da comienzo a la página después de su reproducción o a través del botón saltar intro.
 
