@@ -51,7 +51,7 @@
 				.nombre {
 					text-decoration: underline;
 					font-family: $font-secundary;
-					color: $button-color;
+					color: $light-alt;
 				}
 
 				.caballero {
@@ -74,7 +74,7 @@
 					padding-top: 8px;
 
 					.btn_detalle {
-						@include border(2px, $button-color);
+						@include border(2px, $light-alt);
 						padding: 4px;
 						border-radius: 6px;
 						font-size: 0.7rem;

@@ -1,5 +1,5 @@
 .modal_filtro {
-	@include border(2px, $button-color);
+	@include border(2px, $light-alt);
 	border-radius: 10px;
 	padding: 26px;
 	font-size: 1rem;
@@ -7,7 +7,7 @@
 	margin-block: 15px;
 
 	@include breakpoint {
-		@include border(3px, $button-color);
+		@include border(3px, $light-alt);
 		font-size: 1.2rem;
 		margin-block: auto;
 	}

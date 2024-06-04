@@ -16,7 +16,7 @@
 	}
 	.card_detalle {
 		padding: 10px;
-		// @include border(2px, $button-color);
+		// @include border(2px, $light-alt);
 		border-radius: 10px;
 		background: url(/assets/pxfuel.jpg);
 		background-position: bottom;
@@ -142,7 +142,7 @@
 				text-align: center;
 				text-decoration: underline;
 				font-family: $font-secundary;
-				color: $button-color;
+				color: $light-alt;
 
 				@include breakpoint {
 					font-size: 1.8rem;
@@ -171,7 +171,7 @@
 				.detalle_btn__editar {
 					// padding-inline: 12px;
 					// padding-block: 3px;
-					// @include border(2px, $button-color);
+					// @include border(2px, $light-alt);
 					// border-radius: 6px;
 
 					// @include breakpoint {
