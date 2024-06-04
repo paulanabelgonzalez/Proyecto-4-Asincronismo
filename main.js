@@ -349,9 +349,25 @@ const regresarContenedorAnterior = (btn, btn_texto, div) => {
 	});
 };
 
+const borrarParams = () => {
+	urlParams.set("armadura", "");
+	urlParams.set("genero", "");
+	urlParams.set("saga", "");
+	urlParams.set("nombre", "");
+	$("#filtro_armadura").value = "";
+	$("#filtro_genero").value = "";
+	$("#filtro_saga").value = "";
+};
+
 const cerrarForm = (btn, btn_texto) => {
-	btn.addEventListener("click", () => $(".form").classList.add("hidden"));
-	btn_texto.addEventListener("click", () => $(".form").classList.add("hidden"));
+	btn.addEventListener("click", () => {
+		$(".form").classList.add("hidden");
+		borrarParams();
+	});
+	btn_texto.addEventListener("click", () => {
+		$(".form").classList.add("hidden");
+		borrarParams();
+	});
 };
 
 $(".crear_caballero").addEventListener("click", () => {
@@ -419,8 +435,10 @@ $("#modal_aceptar__eliminar").addEventListener("click", () => {
 });
 
 const urlParams = new URLSearchParams(urlBase.search);
+
 const filtros = (select, nombre, filtro) => {
 	select.addEventListener("change", (e) => {
+		cambiarIconoHamburguesa();
 		nombre = e.target.value;
 		urlParams.set(filtro, e.target.value);
 		ocultar($(".cards"));
@@ -429,27 +447,29 @@ const filtros = (select, nombre, filtro) => {
 };
 
 filtros($("#filtro_armadura"), "armadura", "armadura");
+filtros($("#filtro_genero"), "genero", "genero");
+filtros($("#filtro_saga"), "saga", "saga");
 
 // $("#filtro_armadura").addEventListener("change", (e) => {
 // 	armadura = e.target.value;
-// 	urlParams.set("armadura", e.target.value);
+// 	urlParams.set("armadura", armadura);
 // 	ocultar($(".cards"));
 // 	getCaballeros(`${urlBase}/?${urlParams}`);
 // });
 
-$("#filtro_genero").addEventListener("change", (e) => {
-	genero = e.target.value;
-	urlParams.set("genero", e.target.value);
-	ocultar($(".cards"));
-	getCaballeros(`${urlBase}/?${urlParams}`);
-});
+// $("#filtro_genero").addEventListener("change", (e) => {
+// 	genero = e.target.value;
+// 	urlParams.set("genero", e.target.value);
+// 	ocultar($(".cards"));
+// 	getCaballeros(`${urlBase}/?${urlParams}`);
+// });
 
-$("#filtro_saga").addEventListener("change", (e) => {
-	saga = e.target.value;
-	urlParams.set("saga", e.target.value);
-	ocultar($(".cards"));
-	getCaballeros(`${urlBase}/?${urlParams}`);
-});
+// $("#filtro_saga").addEventListener("change", (e) => {
+// 	saga = e.target.value;
+// 	urlParams.set("saga", e.target.value);
+// 	ocultar($(".cards"));
+// 	getCaballeros(`${urlBase}/?${urlParams}`);
+// });
 
 const habilitarBuscador = () => {
 	nombre = $("#filtro_nombre").value;
@@ -478,13 +498,19 @@ $("#filtro_nombre__lupa").addEventListener("click", () => {
 });
 
 $(".volver_filtro").addEventListener("click", () => {
+	urlParams.set("nombre", "");
 	mostrarYOcultar($(".crear_caballero"), $(".cards"), $(".volver_filtro"));
 	getCaballeros(urlBase);
 });
 
 $("#filtro_btn__cerrar").addEventListener("click", () => {
-	$("#filtro_armadura").value = "";
-	$("#filtro_genero").value = "";
-	$("#filtro_saga").value = "";
+	borrarParams();
+	// urlParams.set("armadura", "");
+	// urlParams.set("genero", "");
+	// urlParams.set("saga", "");
+	// $("#filtro_armadura").value = "";
+	// $("#filtro_genero").value = "";
+	// $("#filtro_saga").value = "";
+	console.log(urlBase);
 	getCaballeros(urlBase);
 });

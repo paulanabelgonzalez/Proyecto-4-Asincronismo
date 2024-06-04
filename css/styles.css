@@ -236,11 +236,14 @@ main {
   border-radius: 10px;
   padding: 26px;
   font-size: 1rem;
+  color: #ede9e2;
+  margin-block: 15px;
 }
 @media (min-width: 970px) {
   .modal_filtro {
     border: 3px solid #ac3249;
     font-size: 1.2rem;
+    margin-block: auto;
   }
 }
 .modal_filtro .contenedor_btn__filtro {
@@ -250,6 +253,7 @@ main {
 .modal_filtro .contenedor_btn__filtro #filtro_btn__cerrar {
   border: none;
   font-size: 1rem;
+  background: transparent;
 }
 @media (min-width: 970px) {
   .modal_filtro .contenedor_btn__filtro #filtro_btn__cerrar {
@@ -515,7 +519,7 @@ main {
   margin: auto;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: flex-end;
   gap: 18px;
 }
 .cards .volver_filtro {
