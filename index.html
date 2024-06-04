@@ -8,6 +8,7 @@
 		<title>Caballeros del Zoodiaco</title>
 	</head>
 	<body>
+		<!-- comienzo header -->
 		<header>
 			<nav class="logo_intro">
 				<div class="logo_intro__img">
@@ -51,7 +52,11 @@
 				</div>
 			</nav>
 		</header>
+		<!-- fin header -->
+
+		<!-- comienzo main -->
 		<main>
+			<!-- comienzo intro -->
 			<div class="intro">
 				<video
 					class="video"
@@ -62,10 +67,16 @@
 				></video>
 				<button class="btn_intro">Saltar Intro >></button>
 			</div>
+			<!-- fin intro -->
+
+			<!-- comienzo spinner -->
 			<div class="spinner hidden">
 				<img class="spinner_img" src="assets/spinner.gif" alt="spinner" />
 				<p class="spinner_texto">Cargando...</p>
 			</div>
+			<!-- fin spinner -->
+
+			<!-- comienzo filtros -->
 			<div class="contenedor_filtros">
 				<div class="contenedor_filtro__nombre">
 					<input
@@ -100,6 +111,9 @@
 					</select>
 				</div>
 			</div>
+			<!-- fin filtros -->
+
+			<!-- comienzo ventana modal filtros -->
 			<div class="modal_filtro hidden">
 				<div class="contenedor_btn__filtro">
 					<button id="filtro_btn__cerrar">X</button>
@@ -108,11 +122,20 @@
 					Lo sentimos, no hay ningún caballero con esas descripciones.
 				</p>
 			</div>
+			<!-- fin ventana modal filtros -->
+
+			<!-- comienzo cards -->
 			<div class="cards hidden">
 				<button class="volver_filtro hidden"><< Regresar</button>
 				<div class="contenedor_cards"></div>
 			</div>
+			<!-- fin cards -->
+
+			<!-- comienzo card -->
 			<div class="detalle hidden"></div>
+			<!-- fin card -->
+
+			<!-- comienzo form agregar caballero -->
 			<div class="form_agregar contenedor_form hidden">
 				<form id="form_agregar__id">
 					<div class="form contenedor_regresar">
@@ -145,14 +168,6 @@
 							<option value="Oro">Oro</option>
 							<option value="Divina">Divina</option>
 						</select>
-						<!-- <input
-							type="text"
-							name="form_agregar__armadura"
-							id="form_agregar__armadura"
-							placeholder="Qué tipo de armadura es: bronce, oro, etc.  "
-							required
-							minlength="3"
-						/> -->
 					</div>
 					<div class="formulario">
 						<label for="form_agregar__caballero">Caballero</label>
@@ -171,13 +186,6 @@
 							<option value="Femenino">Femenino</option>
 							<option value="Masculino">Masculino</option>
 						</select>
-						<!-- <input
-							type="text"
-							name="form_agregar__genero"
-							id="form_agregar__genero"
-							placeholder="Género"
-							required
-						/> -->
 					</div>
 					<div class="formulario">
 						<label for="form_agregar__avatar">Avatar</label>
@@ -250,13 +258,6 @@
 							<option value="Asgard">Asgard</option>
 							<option value="Poseidón">Poseidón</option>
 						</select>
-						<!-- <input
-							type="text"
-							name="form_agregar__saga"
-							id="form_agregar__saga"
-							placeholder="Saga perteneciente"
-							required
-						/> -->
 					</div>
 					<div class="formulario_btn">
 						<button type="submit" class="agregar_btn__submit form_btn_submit">
@@ -265,6 +266,9 @@
 					</div>
 				</form>
 			</div>
+			<!-- fin form agregar caballero -->
+
+			<!-- comienzo ventana modal confirmar eliminar -->
 			<div class="contenedor_modal hidden">
 				<div class="ventana_modal">
 					<div class="modal_contenedor__btn">
@@ -284,7 +288,11 @@
 					<button id="modal_aceptar__eliminar">Eliminar</button>
 				</div>
 			</div>
+			<!-- comienzo ventana modal confirmar eliminar -->
 		</main>
+		<!-- fin main -->
+
+		<!-- comienzo footer -->
 		<footer>
 			<a
 				href="https://github.com/paulanabelgonzalez/Proyecto-4-Asincronismo"
@@ -293,6 +301,7 @@
 			/></a>
 			<p>Hecho con 💖 Paula Gonzalez</p>
 		</footer>
+		<!-- fin footer -->
 		<script src="main.js"></script>
 	</body>
 </html>
