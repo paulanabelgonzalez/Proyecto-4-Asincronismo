@@ -437,6 +437,8 @@ main {
   width: 100%;
   display: flex;
   justify-content: center;
+  background: url(../../assets/fondo.jpg);
+  padding-block: 20px;
 }
 .contenedor_form form, .contenedor_form form .formulario {
   width: 100%;

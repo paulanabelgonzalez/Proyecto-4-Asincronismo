@@ -10,6 +10,12 @@ const mostrarYOcultar = (ver, ...ocultar) => {
 };
 
 const salirDeIntro = () => {
+	const video = $(".video");
+	if (video) {
+		video.pause();
+		video.currentTime = 0;
+	}
+
 	mostrarYOcultar($(".contenedor_nav"), $(".logo_intro"), $(".intro"));
 	getCaballeros(urlBase);
 };
@@ -27,7 +33,13 @@ const mostrarFiltros = (contenedor) => {
 };
 
 // funcion para que al finalizar el video se vea la pagina automaticamente.
-const introTerminada = () => ($(".video").onended = () => salirDeIntro());
+
+const introTerminada = () => {
+	const video = $(".video");
+	if (video) {
+		video.onended = () => salirDeIntro();
+	}
+};
 
 introTerminada();
 
@@ -223,16 +235,27 @@ const renderDetalle = (card) => {
 					    name="form_nombre"
 					    id="form_nombre"
 				        value="${nombre}"
+                        required
+					    minlength="2"
 				    />
 			    </div>
 			    <div class="formulario">
 				    <label for="form_armadura">Armadura</label>
-				    <input
-					    type="text"
-					    name="form_armadura"
-					    id="form_armadura"
-					    value="${armadura}"
-				    />
+                    <select name="form_armadura" id="form_armadura">
+		              <option value="Bronce" ${
+										armadura === "Bronce" ? "selected" : ""
+									}>Bronce</option>
+		              <option value="Plata" ${
+										armadura === "Plata" ? "selected" : ""
+									}>Plata</option>
+		              <option value="Oro" ${
+										armadura === "Oro" ? "selected" : ""
+									}>Oro</option>
+	               
+                      <option value="Divina" ${
+												armadura === "Divina" ? "selected" : ""
+											}>Divina</option>
+                     </select>
 			    </div>
 			    <div class="formulario">
 				    <label for="form_caballero">Caballero</label>
@@ -241,22 +264,28 @@ const renderDetalle = (card) => {
 					    name="form_caballero"
 					    id="form_caballero"
 					    value="${caballero}"
+                        required
+						minlength="3"
 				    />
 			    </div>
 			    <div class="formulario">
 				    <label for="form_genero">Género</label>
-				    <input
-				        type="text"
-					    name="form_genero"
-					    id="form_genero"
-					    value="${genero}"
-				    />
+				    <select name="form_genero" id="form_genero">
+		              <option value="Masculino" ${
+										genero === "Masculino" ? "selected" : ""
+									}>Masculino</option>
+		              <option value="Femenino" ${
+										genero === "Femenino" ? "selected" : ""
+									}>Femenino</option>
+	                </select>
 			    </div>
 			    <div class="formulario">
 				    <label for="form_descripcion">Descripción</label>
 				    <textarea
 					    name="form_descripcion"
 					    id="form_descripcion"
+                        required
+						maxlength="50"
 				    >${descripcion}</textarea>
 			    </div>
 			    <div class="formulario">
@@ -264,16 +293,29 @@ const renderDetalle = (card) => {
 				    <textarea
 					    name="form_detalle"
 					    id="form_detalle"
+                        required
+						maxlength="100"
 				    >${detalle}</textarea>
 			    </div>
 			    <div class="formulario">
 				    <label for="form_saga">Saga</label>
-				    <input
-					    type="text"
-					    name="form_saga"
-					    id="form_saga"
-					    value="${saga}"
-				    />
+				    <select name="form_saga" id="form_saga">
+		              <option value="Todas" ${
+										saga === "Todas" ? "selected" : ""
+									}>Todas</option>
+                      <option value="12 Casas" ${
+												saga === "12 Casas" ? "selected" : ""
+											}>12 Casas</option>
+                      <option value="Hades" ${
+												saga === "Hades" ? "selected" : ""
+											}>Hades</option>
+		              <option value="Asgard" ${
+										saga === "Asgard" ? "selected" : ""
+									}>Asgard</option>
+		              <option value="Poseidón" ${
+										saga === "Poseidón" ? "selected" : ""
+									}>Poseidón</option>
+	                </select>
 			    </div>
 			    <div class="formulario_btn">
 				    <button type="submit" class="form_btn_submit">Editar</button>
