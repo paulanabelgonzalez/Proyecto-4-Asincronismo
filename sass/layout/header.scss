@@ -28,16 +28,46 @@ header {
 	.contenedor_nav {
 		// width: 100%;
 
+		// display: flex; /* Hace que el contenedor nav sea un contenedor flex */
+		// justify-content: space-between; /* Distribuye espacio entre elementos */
+		// align-items: center; /* Alinea elementos verticalmente en el centro */
+
 		.logo_nav {
 			// width: 100%;
-			display: flex;
-			flex-wrap: wrap;
-			justify-content: space-around;
-			align-items: center;
+			// display: flex;
+			// flex-wrap: wrap;
+			// justify-content: space-around;
+			// align-items: center;
+
+			// display: flex;
+			// flex-wrap: nowrap; /* Evita que los elementos salten a la siguiente línea */
+			// justify-content: space-between; /* Asegura que haya espacio entre el logo y la hamburguesa */
+			// align-items: center;
+			// width: 100%;
+
+			//mio
+			width: 80%;
+			max-width: 1000px;
+			margin: auto;
+
+			@include breakpoint {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
 
 			.logos {
-				@extend .logo_nav;
-				gap: 90px;
+				// @extend .logo_nav;
+				// gap: 90px;
+
+				// display: flex;
+				// align-items: center;
+				// gap: 20px; /* Espaciado entre el logo y el menú hamburguesa */
+
+				//mio
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
 
 				// @include breakpoint {
 				// 	display: flex;
@@ -50,7 +80,7 @@ header {
 					max-width: 166px;
 
 					@include breakpoint {
-						max-width: 280px;
+						max-width: 250px;
 					}
 				}
 
@@ -77,15 +107,19 @@ header {
 				}
 			}
 
-			.crear_caballero {
-				@include border(2px, $light-alt);
-				border-radius: 6px;
-				padding: 8px 12px;
-				margin-bottom: 10px;
-				font-size: 1.1rem;
+			.contenedor_crear {
+				text-align: center;
 
-				@include breakpoint {
-					@include border(3px, $light-alt);
+				.crear_caballero {
+					@include border(2px, $light-alt);
+					border-radius: 6px;
+					padding: 8px 12px;
+					margin-bottom: 10px;
+					font-size: 1.1rem;
+
+					@include breakpoint {
+						@include border(3px, $light-alt);
+					}
 				}
 			}
 		}
