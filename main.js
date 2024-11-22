@@ -390,7 +390,7 @@ const agregarCaballero = () => {
 		img_armadura: $("#form_agregar__img_armadura").value,
 		saga: $("#form_agregar__saga").value,
 	};
-
+	console.log($("#form_agregar__armadura").value);
 	fetch(`${urlBase}`, {
 		method: "POST",
 		headers: {
