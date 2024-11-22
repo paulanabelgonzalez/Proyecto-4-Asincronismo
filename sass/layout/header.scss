@@ -1,8 +1,6 @@
 header {
 	background-color: $light-secundary;
 	height: 22vh;
-	// display: flex;
-	// align-items: center;
 
 	@include breakpoint {
 		height: 17vh;
@@ -26,26 +24,7 @@ header {
 	}
 
 	.contenedor_nav {
-		// width: 100%;
-
-		// display: flex; /* Hace que el contenedor nav sea un contenedor flex */
-		// justify-content: space-between; /* Distribuye espacio entre elementos */
-		// align-items: center; /* Alinea elementos verticalmente en el centro */
-
 		.logo_nav {
-			// width: 100%;
-			// display: flex;
-			// flex-wrap: wrap;
-			// justify-content: space-around;
-			// align-items: center;
-
-			// display: flex;
-			// flex-wrap: nowrap; /* Evita que los elementos salten a la siguiente línea */
-			// justify-content: space-between; /* Asegura que haya espacio entre el logo y la hamburguesa */
-			// align-items: center;
-			// width: 100%;
-
-			//mio
 			width: 80%;
 			max-width: 1000px;
 			margin: auto;
@@ -57,26 +36,11 @@ header {
 			}
 
 			.logos {
-				// @extend .logo_nav;
-				// gap: 90px;
-
-				// display: flex;
-				// align-items: center;
-				// gap: 20px; /* Espaciado entre el logo y el menú hamburguesa */
-
-				//mio
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
 
-				// @include breakpoint {
-				// 	display: flex;
-				// 	justify-content: space-around;
-				// 	align-items: center;
-				// }
-
 				.img_logo {
-					// @extend .intro_img;
 					max-width: 166px;
 
 					@include breakpoint {
@@ -85,7 +49,6 @@ header {
 				}
 
 				.hamburguesa {
-					// max-width: 45px;
 					border: none;
 					background-color: #e5dbc7;
 
@@ -123,14 +86,5 @@ header {
 				}
 			}
 		}
-
-		// .buscador {
-		// 	@include breakpoint {
-		// 		width: 34%;
-		// 		display: flex;
-		// 		justify-content: space-around;
-		// 		align-items: center;
-		// 	}
-		// }
 	}
 }

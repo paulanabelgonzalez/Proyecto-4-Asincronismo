@@ -215,22 +215,22 @@ main {
 }
 .modal_filtro {
   border: 2px solid #ac3249;
+  width: 75%;
   border-radius: 10px;
-  padding: 26px;
+  padding: 50px 26px;
   font-size: 1rem;
   color: #ede9e2;
-  margin-block: 15px;
+  margin-block: auto;
 }
 @media (min-width: 970px) {
   .modal_filtro {
     border: 3px solid #ac3249;
     font-size: 1.2rem;
-    margin-block: auto;
+    text-align: center;
   }
 }
 .modal_filtro .contenedor_btn__filtro {
   text-align: end;
-  padding-bottom: 12px;
 }
 .modal_filtro .contenedor_btn__filtro #filtro_btn__cerrar {
   border: none;
