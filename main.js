@@ -193,9 +193,9 @@ const renderDetalle = (card) => {
 
 		$(".detalle").innerHTML = `
         <div class="card_detalle">
-        <div class="contenedor_detalle__regresar">
+          <div class="contenedor_detalle__regresar">
 			<button class="detalle_regresar">X</button>
-            </div>
+          </div>
 			<div class="detalle_img">
 				<img
 					class="box"
@@ -322,6 +322,18 @@ const renderDetalle = (card) => {
 			    </div>
 		    </form>
         </div> `;
+
+		const cardDetalle = document.querySelector(".card_detalle");
+		if (cardDetalle) {
+			cardDetalle.style.background = `url("./assets/pxfuel.jpg")`;
+			cardDetalle.style.backgroundPosition = "bottom";
+		}
+
+		const form = document.querySelector(".contenedor_form");
+		if (form) {
+			form.style.background = `url("./assets/fondo.jpg")`;
+			form.style.backgroundPosition = "center";
+		}
 
 		$(".detalle_btn__editar").addEventListener("click", () =>
 			mostrar($(".form"))
