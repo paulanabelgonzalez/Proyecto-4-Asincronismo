@@ -435,6 +435,7 @@ main {
   display: flex;
   justify-content: center;
   padding: 20px;
+  max-width: 1160px;
 }
 .contenedor_form form, .contenedor_form form .formulario {
   width: 100%;
@@ -444,7 +445,6 @@ main {
 }
 @media (min-width: 970px) {
   .contenedor_form form, .contenedor_form form .formulario {
-    max-width: 1160px;
     gap: 12px;
   }
 }
